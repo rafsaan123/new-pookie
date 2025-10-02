@@ -1,11 +1,26 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: [],
-  },
+  // Vercel optimizations
+  output: 'standalone',
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
+  
+  // Image optimization
+  images: {
+    domains: [],
+    formats: ['image/webp', 'image/avif'],
+  },
+  
+  // Performance optimizations
+  experimental: {
+    optimizePackageImports: ['react', 'react-dom'],
+  },
+  
+  // Build optimizations
+  swcMinify: true,
+  
+  // Security headers
   async headers() {
     return [
       {
@@ -24,8 +39,8 @@ const nextConfig = {
             value: 'origin-when-cross-origin',
           },
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
           },
         ],
       },
@@ -37,6 +52,17 @@ const nextConfig = {
             value: 'public, max-age=300, s-maxage=300',
           },
         ],
+      },
+    ]
+  },
+  
+  // Redirects
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
       },
     ]
   },

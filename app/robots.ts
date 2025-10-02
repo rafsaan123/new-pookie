@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/_next/', '/admin/'],
     },
-    sitemap: 'https://bteb-results.vercel.app/sitemap.xml',
+    sitemap: 'https://btebresultshub.com/sitemap.xml',
   }
 }

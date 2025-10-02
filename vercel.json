@@ -16,11 +16,6 @@
       "dest": "/$1"
     }
   ],
-  "functions": {
-    "app/api/result/route.ts": {
-      "maxDuration": 30
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",

@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://bteb-results.vercel.app'),
+  metadataBase: new URL('https://btebresultshub.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'BTEB Results 2025 - Check Diploma Results Online',
     description: 'Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering, Technology & Agriculture programs.',
-    url: 'https://bteb-results.vercel.app',
+    url: 'https://btebresultshub.com',
     siteName: 'BTEB Result Search',
     images: [
       {
@@ -84,8 +84,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "BTEB Result Search",
-    "description": "Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering, Technology & Agriculture programs.",
-    "url": "https://bteb-results.vercel.app",
+    "description": "Check BTEB results 2025 instantly. Search diploma results by roll number for Diploma in Engineering.",
+    "url": "https://btebresultshub.com",
     "applicationCategory": "EducationApplication",
     "operatingSystem": "Web Browser",
     "offers": {
@@ -96,7 +96,7 @@ export default function RootLayout({
     "provider": {
       "@type": "Organization",
       "name": "BTEB Result Search",
-      "url": "https://bteb-results.vercel.app"
+      "url": "https://btebresultshub.com"
     },
     "featureList": [
       "BTEB Result Search",
@@ -118,7 +118,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <link rel="canonical" href="https://bteb-results.vercel.app" />
+        <link rel="canonical" href="https://btebresultshub.com" />
         <meta name="theme-color" content="#2563eb" />
         <meta name="msapplication-TileColor" content="#2563eb" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />

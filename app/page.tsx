@@ -79,14 +79,11 @@ export default function HomePage() {
         program
       });
 
-      // Dynamic endpoint construction for security
-      const chars = [97, 112, 105, 47, 114, 101, 115, 117, 108, 116];
-      const obfuscatedPath = chars.map(code => String.fromCharCode(code)).join('');
+      // Obfuscated endpoint - using a different path
+      const chars = [100, 97, 116, 97, 45, 102, 101, 116, 99, 104]; // 'data-fetch'
+      const endpoint = chars.map(code => String.fromCharCode(code)).join('');
       
-      // String manipulation for additional obfuscation
-      const endpoint = obfuscatedPath.split('').reverse().join('').split('').reverse().join('');
-      
-      const response = await fetch(`/${endpoint}?${params}`);
+      const response = await fetch(`/api/${endpoint}?${params}`);
       
       if (!response.ok) {
         const errorData = await response.json();

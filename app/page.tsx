@@ -62,6 +62,15 @@ export default function HomePage() {
       return;
     }
 
+    // Track search attempt
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'search', {
+        search_term: 'BTEB Results',
+        regulation: regulation,
+        program: program
+      });
+    }
+
     setLoading(true);
     setError('');
 
@@ -86,9 +95,27 @@ export default function HomePage() {
       console.log('Success response:', data);
       if (data.error) throw new Error(data.error);
       setResult(data);
+      
+      // Track successful result
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'result_found', {
+          regulation: regulation,
+          program: program,
+          institute: data.institute?.name || 'Unknown'
+        });
+      }
     } catch (error: any) {
       console.error('Error fetching result:', error);
       setError(error.message || 'Failed to fetch result. Please try again later.');
+      
+      // Track error
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'search_error', {
+          error_message: error.message || 'Unknown error',
+          regulation: regulation,
+          program: program
+        });
+      }
     } finally {
       setLoading(false);
     }

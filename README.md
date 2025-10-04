@@ -26,6 +26,23 @@ A comprehensive, SEO-optimized website for searching BTEB (Bangladesh Technical 
 - **Internal Linking**: Strategic internal linking between related pages
 - **User Intent**: Content designed to match user search intent
 
+## 📊 Analytics & Tracking
+
+### Google Analytics Integration
+- **Tracking ID**: G-QGCT6S6VB1
+- **Event Tracking**: Search attempts, successful results, and errors
+- **Custom Events**:
+  - `search`: Tracks when users search for BTEB results
+  - `result_found`: Tracks successful result retrievals
+  - `search_error`: Tracks search errors and failures
+
+### Analytics Features
+- **Page Views**: Automatic tracking of all page visits
+- **User Interactions**: Search form submissions and result views
+- **Error Tracking**: Failed searches and API errors
+- **Performance Monitoring**: Core Web Vitals tracking
+- **SEO Insights**: Search query analysis and user behavior
+
 ## 🚀 Features
 
 ### Core Functionality

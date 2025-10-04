@@ -1,7 +1,7 @@
 'use server';
 
 import { PookieApiService } from '../services/pookieApiService';
-import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
 export async function searchResult(formData: FormData) {
   const studentId = formData.get('studentId') as string;
@@ -19,13 +19,8 @@ export async function searchResult(formData: FormData) {
       return { error: result.error };
     }
 
-    // Store result in session or pass as URL params
-    const params = new URLSearchParams({
-      success: 'true',
-      data: JSON.stringify(result.data)
-    });
-
-    redirect(`/?${params.toString()}`);
+    // Return the result data directly instead of redirecting
+    return { success: true, data: result.data };
   } catch (error: any) {
     return { error: error.message || 'Failed to fetch result' };
   }

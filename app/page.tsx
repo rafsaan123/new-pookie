@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useTransition } from 'react';
 import { searchResult } from './actions';
+import { StudyAidResultData } from '../services/pookieApiService';
 
 interface ReferredSubject {
   subject_semester: number;
@@ -42,7 +43,7 @@ interface ResultData {
 
 export default function HomePage() {
   // Result search states
-  const [result, setResult] = useState<ResultData | null>(null);
+  const [result, setResult] = useState<StudyAidResultData | null>(null);
   const [error, setError] = useState<string>('');
   const [studentId, setStudentId] = useState<string>('');
   const [regulation, setRegulation] = useState<string>('2022');
@@ -50,38 +51,10 @@ export default function HomePage() {
   const [mounted, setMounted] = useState(false);
   const [isPending, startTransition] = useTransition();
 
-  // Prevent hydration mismatch and handle URL params
+  // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true);
-    
-    // Check for result data in URL params (from server action redirect)
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      const success = urlParams.get('success');
-      const dataParam = urlParams.get('data');
-      
-      if (success === 'true' && dataParam) {
-        try {
-          const resultData = JSON.parse(decodeURIComponent(dataParam));
-          setResult(resultData);
-          
-          // Track successful result
-          if (window.gtag) {
-            window.gtag('event', 'result_found', {
-              regulation: regulation,
-              program: program,
-              institute: resultData.institute?.name || 'Unknown'
-            });
-          }
-          
-          // Clean URL
-          window.history.replaceState({}, '', window.location.pathname);
-        } catch (error) {
-          console.error('Error parsing result data:', error);
-        }
-      }
-    }
-  }, [regulation, program]);
+  }, []);
 
   const handleSubmit = (formData: FormData) => {
     startTransition(async () => {
@@ -107,6 +80,17 @@ export default function HomePage() {
             error_message: result.error,
             regulation: regulation,
             program: program
+          });
+        }
+      } else if (result?.success && result?.data) {
+        setResult(result.data);
+        
+        // Track successful result
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'result_found', {
+            regulation: regulation,
+            program: program,
+            institute: result.data.institute?.name || 'Unknown'
           });
         }
       }
@@ -314,6 +298,12 @@ export default function HomePage() {
                       <p className="text-xs text-gray-600">Data Source</p>
                       <p className="font-medium text-green-600">Pookie Backend API</p>
                     </div>
+                    {result.latest_result && (
+                      <div>
+                        <p className="text-xs text-gray-600">Latest Result</p>
+                        <p className="font-medium">{result.latest_result.gpa || 'Referred'}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

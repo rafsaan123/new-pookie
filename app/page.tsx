@@ -187,9 +187,9 @@ export default function HomePage() {
                     className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     aria-label="Select BTEB regulation year"
                   >
-                    <option value="2010">BTEB Regulation 2010</option>
-                    <option value="2016">BTEB Regulation 2016</option>
-                    <option value="2022">BTEB Regulation 2022</option>
+                    <option value="2010">2010</option>
+                    <option value="2016">2016</option>
+                    <option value="2022">2022</option>
                   </select>
                   <select
                     value={program}
@@ -198,8 +198,6 @@ export default function HomePage() {
                     aria-label="Select diploma program type"
                   >
                     <option value="Diploma in Engineering">Diploma in Engineering</option>
-                    <option value="Diploma in Technology">Diploma in Technology</option>
-                    <option value="Diploma in Agriculture">Diploma in Agriculture</option>
                   </select>
                 </div>
 
@@ -411,8 +409,6 @@ export default function HomePage() {
             </h3>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li><strong>Diploma in Engineering</strong> - Civil, Electrical, Mechanical, Computer, and other engineering disciplines</li>
-              <li><strong>Diploma in Technology</strong> - Various technology-based diploma programs</li>
-              <li><strong>Diploma in Agriculture</strong> - Agricultural science and technology programs</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">

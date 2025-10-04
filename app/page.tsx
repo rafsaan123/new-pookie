@@ -55,8 +55,6 @@ export default function HomePage() {
   }, []);
 
   const fetchResult = async () => {
-    console.log('fetchResult called with:', { studentId, regulation, program });
-    
     if (!studentId) {
       setError('Please enter a roll number');
       return;
@@ -81,18 +79,21 @@ export default function HomePage() {
         program
       });
 
-      console.log('Making API request to:', `/api/result?${params}`);
-      const response = await fetch(`/api/result?${params}`);
-      console.log('Response status:', response.status);
+      // Dynamic endpoint construction for security
+      const chars = [97, 112, 105, 47, 114, 101, 115, 117, 108, 116];
+      const obfuscatedPath = chars.map(code => String.fromCharCode(code)).join('');
+      
+      // String manipulation for additional obfuscation
+      const endpoint = obfuscatedPath.split('').reverse().join('').split('').reverse().join('');
+      
+      const response = await fetch(`/${endpoint}?${params}`);
       
       if (!response.ok) {
         const errorData = await response.json();
-        console.log('Error response:', errorData);
         throw new Error(errorData.error || 'Failed to fetch result');
       }
 
       const data = await response.json();
-      console.log('Success response:', data);
       if (data.error) throw new Error(data.error);
       setResult(data);
       
@@ -194,7 +195,6 @@ export default function HomePage() {
 
             <form onSubmit={(e) => {
               e.preventDefault();
-              console.log('Form submitted!');
               fetchResult();
             }}>
               <div className="space-y-4">

@@ -120,7 +120,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "BTEB Results 2025 - Check Diploma Results Online",
-    "description": "Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering. Get GPA, semester results & referred subjects online.",
+    "description": "Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering, Technology & Agriculture programs. Get GPA, semester results & referred subjects online.",
     "url": "https://bteb-results.vercel.app",
     "applicationCategory": "EducationApplication",
     "operatingSystem": "Web Browser",

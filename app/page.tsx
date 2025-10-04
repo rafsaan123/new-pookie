@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useTransition } from 'react';
+import { searchResult } from './actions';
 
 interface ReferredSubject {
   subject_semester: number;
@@ -41,82 +42,75 @@ interface ResultData {
 
 export default function HomePage() {
   // Result search states
-  const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ResultData | null>(null);
   const [error, setError] = useState<string>('');
   const [studentId, setStudentId] = useState<string>('');
   const [regulation, setRegulation] = useState<string>('2022');
   const [program, setProgram] = useState<string>('Diploma in Engineering');
   const [mounted, setMounted] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
-  // Prevent hydration mismatch
+  // Prevent hydration mismatch and handle URL params
   useEffect(() => {
     setMounted(true);
+    
+    // Check for result data in URL params (from server action redirect)
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const success = urlParams.get('success');
+      const dataParam = urlParams.get('data');
+      
+      if (success === 'true' && dataParam) {
+        try {
+          const resultData = JSON.parse(decodeURIComponent(dataParam));
+          setResult(resultData);
+          
+          // Track successful result
+          if (window.gtag) {
+            window.gtag('event', 'result_found', {
+              regulation: regulation,
+              program: program,
+              institute: resultData.institute?.name || 'Unknown'
+            });
+          }
+          
+          // Clean URL
+          window.history.replaceState({}, '', window.location.pathname);
+        } catch (error) {
+          console.error('Error parsing result data:', error);
+        }
+      }
+    }
   }, []);
 
-  const fetchResult = async () => {
-    if (!studentId) {
-      setError('Please enter a roll number');
-      return;
-    }
-
-    // Track search attempt
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'search', {
-        search_term: 'BTEB Results',
-        regulation: regulation,
-        program: program
-      });
-    }
-
-    setLoading(true);
-    setError('');
-
-    try {
-      const params = new URLSearchParams({
-        studentId,
-        regulation,
-        program
-      });
-
-      // Obfuscated endpoint - using a different path
-      const chars = [100, 97, 116, 97, 45, 102, 101, 116, 99, 104]; // 'data-fetch'
-      const endpoint = chars.map(code => String.fromCharCode(code)).join('');
+  const handleSubmit = (formData: FormData) => {
+    startTransition(async () => {
+      setError('');
       
-      const response = await fetch(`/api/${endpoint}?${params}`);
-      
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to fetch result');
-      }
-
-      const data = await response.json();
-      if (data.error) throw new Error(data.error);
-      setResult(data);
-      
-      // Track successful result
+      // Track search attempt
       if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'result_found', {
-          regulation: regulation,
-          program: program,
-          institute: data.institute?.name || 'Unknown'
-        });
-      }
-    } catch (error: any) {
-      console.error('Error fetching result:', error);
-      setError(error.message || 'Failed to fetch result. Please try again later.');
-      
-      // Track error
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'search_error', {
-          error_message: error.message || 'Unknown error',
+        window.gtag('event', 'search', {
+          search_term: 'BTEB Results',
           regulation: regulation,
           program: program
         });
       }
-    } finally {
-      setLoading(false);
-    }
+      
+      const result = await searchResult(formData);
+      
+      if (result?.error) {
+        setError(result.error);
+        
+        // Track error
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'search_error', {
+            error_message: result.error,
+            regulation: regulation,
+            program: program
+          });
+        }
+      }
+    });
   };
 
   const formatDate = (dateString: string) => {
@@ -190,14 +184,12 @@ export default function HomePage() {
               Search BTEB Results 2025 - Diploma & Polytechnic Result Check
             </h2>
 
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              fetchResult();
-            }}>
+            <form action={handleSubmit}>
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <input
                     type="text"
+                    name="studentId"
                     value={studentId}
                     onChange={(e) => setStudentId(e.target.value)}
                     placeholder="Enter BTEB Roll Number"
@@ -206,6 +198,7 @@ export default function HomePage() {
                     required
                   />
                   <select
+                    name="regulation"
                     value={regulation}
                     onChange={(e) => setRegulation(e.target.value)}
                     className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -216,6 +209,7 @@ export default function HomePage() {
                     <option value="2022">2022</option>
                   </select>
                   <select
+                    name="program"
                     value={program}
                     onChange={(e) => setProgram(e.target.value)}
                     className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -227,13 +221,13 @@ export default function HomePage() {
 
                 <button
                   type="submit"
-                  disabled={loading}
+                  disabled={isPending}
                   className={`w-full px-4 py-2 rounded-md text-white ${
-                    loading ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'
+                    isPending ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'
                   }`}
                   aria-label="Search BTEB results"
                 >
-                  {loading ? 'Searching BTEB Results...' : 'Search BTEB Results 2025'}
+                  {isPending ? 'Searching BTEB Results...' : 'Search BTEB Results 2025'}
                 </button>
               </div>
             </form>
@@ -244,7 +238,7 @@ export default function HomePage() {
               </div>
             )}
 
-            {mounted && loading && (
+            {mounted && isPending && (
               <div className="flex justify-center items-center py-8">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
               </div>

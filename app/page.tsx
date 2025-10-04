@@ -130,7 +130,7 @@ export default function HomePage() {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <h1 className="text-2xl font-bold text-gray-900">
-                BTEB Results 2025 - Check Diploma Results Online
+                BTEB Results 2025 - Check Diploma & Polytechnic Results Online
               </h1>
             </div>
             <div className="flex items-center space-x-4">
@@ -145,12 +145,12 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center">
             <h2 className="text-lg font-semibold text-gray-800 mb-2">
-              Bangladesh Technical Education Board (BTEB) Results 2025
+              Bangladesh Technical Education Board (BTEB) Results 2025 - Diploma & Polytechnic Results
             </h2>
             <p className="text-gray-600 text-sm max-w-4xl mx-auto">
               Check your <strong>BTEB results 2025</strong> instantly with our fast and reliable result search system. 
-              Get your <strong>diploma results</strong> for Engineering, Technology, and Agriculture programs. 
-              View detailed semester results, GPA scores, and referred subjects information online.
+              Get your <strong>diploma results</strong> and <strong>polytechnic results</strong> for Engineering programs. 
+              View detailed semester results, GPA scores, and referred subjects information online. Search by roll number for instant access to your academic performance.
             </p>
           </div>
         </div>
@@ -162,7 +162,7 @@ export default function HomePage() {
           {/* Result Search Section */}
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-              Search BTEB Results 2025 - Diploma Result Check
+              Search BTEB Results 2025 - Diploma & Polytechnic Result Check
             </h2>
 
             <form onSubmit={(e) => {
@@ -307,7 +307,7 @@ export default function HomePage() {
           {/* Features Section */}
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-              BTEB Result Search Features - Diploma Results 2025
+              BTEB Result Search Features - Diploma & Polytechnic Results 2025
             </h2>
 
             <div className="space-y-6">
@@ -321,7 +321,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800">Instant BTEB Result Search</h3>
-                  <p className="text-gray-600">Search BTEB results 2025 instantly with roll number, regulation, and program selection. Get your diploma results in seconds.</p>
+                  <p className="text-gray-600">Search BTEB results 2025 instantly with roll number, regulation, and program selection. Get your diploma results and polytechnic results in seconds.</p>
                 </div>
               </div>
 
@@ -335,7 +335,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800">Comprehensive BTEB Database</h3>
-                  <p className="text-gray-600">Access BTEB results from multiple databases with API fallback for maximum coverage. Get accurate diploma results for all programs.</p>
+                  <p className="text-gray-600">Access BTEB results from multiple databases with API fallback for maximum coverage. Get accurate diploma results and polytechnic results for all programs.</p>
                 </div>
               </div>
 
@@ -349,7 +349,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800">Fast & Reliable BTEB Search</h3>
-                  <p className="text-gray-600">Fast and reliable BTEB result search with comprehensive error handling. Get your diploma results instantly without any delays.</p>
+                  <p className="text-gray-600">Fast and reliable BTEB result search with comprehensive error handling. Get your diploma results and polytechnic results instantly without any delays.</p>
                 </div>
               </div>
 
@@ -363,7 +363,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800">Detailed BTEB Results</h3>
-                  <p className="text-gray-600">View detailed semester results, GPA information, and referred subjects for all BTEB diploma programs including Engineering, Technology, and Agriculture.</p>
+                  <p className="text-gray-600">View detailed semester results, GPA information, and referred subjects for all BTEB diploma programs and polytechnic programs including Engineering, Technology, and Agriculture.</p>
                 </div>
               </div>
             </div>
@@ -385,7 +385,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-start space-x-2">
                   <span className="font-semibold text-blue-600">4.</span>
-                  <span>Click &quot;Search BTEB Results 2025&quot; to get your diploma results</span>
+                  <span>Click &quot;Search BTEB Results 2025&quot; to get your diploma results and polytechnic results</span>
                 </div>
               </div>
             </div>
@@ -395,24 +395,26 @@ export default function HomePage() {
         {/* SEO Content Section */}
         <section className="mt-12 bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-            BTEB Results 2025 - Complete Guide to Diploma Results
+            BTEB Results 2025 - Complete Guide to Diploma & Polytechnic Results
           </h2>
           
           <div className="prose max-w-none text-gray-600">
             <p className="mb-4">
               The <strong>Bangladesh Technical Education Board (BTEB)</strong> is responsible for conducting examinations 
-              and publishing results for various diploma programs including <strong>Diploma in Engineering</strong>, 
+              and publishing results for various diploma programs and polytechnic programs including <strong>Diploma in Engineering</strong>, 
               <strong>Diploma in Technology</strong>, and <strong>Diploma in Agriculture</strong>. Our platform provides 
-              instant access to <strong>BTEB results 2025</strong> and previous years&apos; results.
+              instant access to <strong>BTEB results 2025</strong>, <strong>diploma results 2025</strong>, <strong>polytechnic results 2025</strong> and previous years&apos; results.
             </p>
             
             <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">
-              Available BTEB Programs for Result Check
+              Available BTEB Programs for Result Check - Diploma & Polytechnic Results
             </h3>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li><strong>Diploma in Engineering</strong> - Civil, Electrical, Mechanical, Computer, and other engineering disciplines</li>
               <li><strong>Diploma in Technology</strong> - Various technology-based diploma programs</li>
               <li><strong>Diploma in Agriculture</strong> - Agricultural science and technology programs</li>
+              <li><strong>Polytechnic Institute Results</strong> - All polytechnic institute results under BTEB</li>
+              <li><strong>Technical Education Results</strong> - Complete technical education result database</li>
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">
@@ -434,6 +436,36 @@ export default function HomePage() {
               <li>Exam dates and publication information</li>
               <li>Overall academic performance</li>
             </ul>
+
+            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">
+              Frequently Asked Questions (FAQ) - BTEB Results 2025
+            </h3>
+            <div className="space-y-4 mb-6">
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-gray-800 mb-2">How to check BTEB results 2025?</h4>
+                <p className="text-sm text-gray-600">Enter your BTEB roll number, select regulation year (2010, 2016, or 2022), choose your program type, and click search to get your diploma results or polytechnic results instantly.</p>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-gray-800 mb-2">What is BTEB result check?</h4>
+                <p className="text-sm text-gray-600">BTEB result check is the process of searching and viewing your Bangladesh Technical Education Board examination results online using your roll number and other details.</p>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-gray-800 mb-2">How to get diploma results online?</h4>
+                <p className="text-sm text-gray-600">Use our platform to search diploma results by entering your roll number, selecting regulation, and program type. Get instant access to your diploma in engineering</p>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-gray-800 mb-2">What are polytechnic results?</h4>
+                <p className="text-sm text-gray-600">Polytechnic results are examination results from polytechnic institutes under BTEB, including diploma programs in engineering, technology, and agriculture fields.</p>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-gray-800 mb-2">How to check BTEB results by roll number?</h4>
+                <p className="text-sm text-gray-600">Simply enter your BTEB roll number in the search field, select your regulation year and program type, then click search to view your results instantly.</p>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-gray-800 mb-2">What information is shown in BTEB results?</h4>
+                <p className="text-sm text-gray-600">BTEB results show semester-wise GPA, institute information, referred subjects (if any), exam dates, and overall academic performance for diploma and polytechnic programs.</p>
+              </div>
+            </div>
 
             <p className="mt-6 text-sm text-gray-500">
               <strong>Note:</strong> This is an unofficial platform for checking BTEB results. For official results, 

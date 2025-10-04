@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'BTEB Results 2025 - Check Diploma Results Online',
+    name: 'BTEB Results 2025 - Check Diploma & Polytechnic Results Online',
     short_name: 'BTEB Results',
-    description: 'Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering.',
+    description: 'Check BTEB results 2025 instantly. Search diploma and polytechnic results by roll number for Engineering, Technology & Agriculture.',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

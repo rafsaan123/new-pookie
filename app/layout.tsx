@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     'bteb result 2025',
     'diploma result',
     'diploma results 2025',
+    'polytechnic result',
+    'polytechnic results 2025',
     'bangladesh technical education board',
     'bteb result check',
     'diploma engineering result',
@@ -21,7 +23,41 @@ export const metadata: Metadata = {
     'bteb gpa result',
     'diploma semester result',
     'bteb referred subjects',
-    'technical education result bangladesh'
+    'technical education result bangladesh',
+    'bteb diploma result',
+    'polytechnic institute result',
+    'diploma in engineering result',
+    'diploma in technology result',
+    'diploma in agriculture result',
+    'bteb result search',
+    'bteb result online',
+    'bteb result check online',
+    'diploma result check',
+    'polytechnic result check',
+    'bteb 2025 result',
+    'diploma 2025 result',
+    'polytechnic 2025 result',
+    'bteb exam result',
+    'diploma exam result',
+    'polytechnic exam result',
+    'bteb semester result',
+    'diploma semester result',
+    'polytechnic semester result',
+    'bteb gpa check',
+    'diploma gpa check',
+    'polytechnic gpa check',
+    'bteb institute result',
+    'diploma institute result',
+    'polytechnic institute result',
+    'bteb regulation result',
+    'diploma regulation result',
+    'polytechnic regulation result',
+    'bteb result by roll',
+    'diploma result by roll',
+    'polytechnic result by roll',
+    'bteb result by roll number',
+    'diploma result by roll number',
+    'polytechnic result by roll number'
   ],
   authors: [{ name: 'BTEB Result Search' }],
   creator: 'BTEB Result Search',
@@ -83,8 +119,8 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "BTEB Result Search",
-    "description": "Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering, Technology & Agriculture programs.",
+    "name": "BTEB Results 2025 - Check Diploma Results Online",
+    "description": "Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering. Get GPA, semester results & referred subjects online.",
     "url": "https://bteb-results.vercel.app",
     "applicationCategory": "EducationApplication",
     "operatingSystem": "Web Browser",
@@ -101,14 +137,31 @@ export default function RootLayout({
     "featureList": [
       "BTEB Result Search",
       "Diploma Result Check",
+      "Polytechnic Result Check",
       "Engineering Results",
       "Technology Results",
       "Agriculture Results",
       "GPA Calculation",
       "Semester Results",
-      "Referred Subjects"
+      "Referred Subjects",
+      "BTEB Roll Number Search",
+      "Diploma Roll Number Search",
+      "Polytechnic Roll Number Search"
     ],
-    "keywords": "bteb results, diploma result, bangladesh technical education board, bteb result check, diploma engineering result"
+    "keywords": "bteb results, diploma result, polytechnic result, bangladesh technical education board, bteb result check, diploma engineering result, polytechnic institute result, bteb 2025 result, diploma 2025 result, polytechnic 2025 result",
+    "about": {
+      "@type": "EducationalOrganization",
+      "name": "Bangladesh Technical Education Board",
+      "alternateName": "BTEB",
+      "description": "Official board for technical education in Bangladesh"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student"
+    },
+    "educationalUse": "assessment",
+    "learningResourceType": "assessment",
+    "educationalLevel": "diploma"
   };
 
   return (

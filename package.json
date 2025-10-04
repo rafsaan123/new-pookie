@@ -10,7 +10,9 @@
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
     "build:analyze": "ANALYZE=true next build",
-    "vercel-build": "next build"
+    "vercel-build": "next build",
+    "seo:check": "next build && next export",
+    "seo:validate": "npm run type-check && npm run lint"
   },
   "dependencies": {
     "next": "14.0.0",

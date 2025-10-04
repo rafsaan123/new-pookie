@@ -1,6 +1,6 @@
 'use server';
 
-import { PookieApiService } from '../../services/pookieApiService';
+import { PookieApiService } from '../services/pookieApiService';
 import { redirect } from 'next/navigation';
 
 export async function searchResult(formData: FormData) {

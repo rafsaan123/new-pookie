@@ -81,7 +81,7 @@ export default function HomePage() {
         }
       }
     }
-  }, []);
+  }, [regulation, program]);
 
   const handleSubmit = (formData: FormData) => {
     startTransition(async () => {

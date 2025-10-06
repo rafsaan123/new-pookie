@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useTransition } from 'react';
+import Image from 'next/image';
 import { searchResult } from './actions';
 import { StudyAidResultData } from '../services/pookieApiService';
 
@@ -161,7 +162,15 @@ export default function HomePage() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Illustration + Tool Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Illustration */}
+          <div className="hidden lg:block">
+            <div className="bg-white rounded-2xl shadow-lg p-4">
+              <Image src="/illustrations/result-check.svg" alt="Result checking" width={800} height={600} className="w-full h-auto" />
+            </div>
+          </div>
+
           {/* Result Search Section */}
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">
@@ -309,9 +318,10 @@ export default function HomePage() {
               </div>
             )}
           </div>
+        </div>
 
-          {/* Features Section */}
-          <div className="bg-white rounded-lg shadow-lg p-6">
+        {/* Features Section */}
+        <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">
               BTEB Result Search Features - Diploma & Polytechnic Results 2025
             </h2>
@@ -395,7 +405,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
         </div>
 
         {/* SEO Content Section */}

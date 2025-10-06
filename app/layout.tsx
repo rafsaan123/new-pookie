@@ -179,12 +179,19 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <GoogleAnalytics />
-        <nav className="bg-white border-b">
+        <nav className="bg-white/90 backdrop-blur border-b sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-12">
-              <div className="flex items-center gap-4 text-sm">
+            <div className="flex items-center justify-between h-14">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-md bg-blue-600 text-white flex items-center justify-center font-bold">B</div>
+                <a href="/" className="text-gray-900 font-semibold hover:text-blue-600">BTEB Result Search</a>
+              </div>
+              <div className="hidden md:flex items-center gap-6 text-sm">
                 <a href="/" className="text-gray-700 hover:text-blue-600">Home</a>
-                <a href="/cgpa-calculator" className="text-gray-700 hover:text-blue-600">CGPA Calculator</a>
+                <a href="/diploma-result-check" className="text-gray-700 hover:text-blue-600">Diploma Results</a>
+                <a href="/polytechnic-result-check" className="text-gray-700 hover:text-blue-600">Polytechnic Results</a>
+                <a href="/bteb-results-2025" className="text-gray-700 hover:text-blue-600">BTEB Results 2025</a>
+                <a href="/cgpa-calculator" className="text-white bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-md">CGPA Calculator</a>
               </div>
             </div>
           </div>

@@ -24,6 +24,10 @@ export default function Calculator() {
 		{ id: crypto.randomUUID(), gpa: '' },
 		{ id: crypto.randomUUID(), gpa: '' },
 	]);
+  const [roll, setRoll] = useState('');
+  const [program, setProgram] = useState('Diploma in Engineering');
+  const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
 	const cgpa = useMemo(() => {
 		const weights = REGULATION_WEIGHTS[regulation];
@@ -69,6 +73,81 @@ export default function Calculator() {
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 				<section className="bg-white rounded-lg shadow-lg p-6">
 					<h2 className="text-2xl font-semibold text-gray-800 mb-6">Enter Semester GPAs</h2>
+
+					<div className="mb-6">
+						<h3 className="text-sm font-semibold text-gray-800 mb-2">Fetch Results and Auto-Fill GPA</h3>
+						<form
+							onSubmit={async (e) => {
+								e.preventDefault();
+								setFetchError(null);
+								setLoading(true);
+								try {
+									const params = new URLSearchParams({ studentId: roll, regulation, program });
+									const res = await fetch('/api/data-fetch?' + params.toString());
+									if (!res.ok) {
+										const err = await res.json();
+										throw new Error(err.error || 'Failed to fetch');
+									}
+									const data = await res.json();
+									// data is StudyAidResultData shape
+									const ordered = data.semester_results
+										.slice()
+										.sort((a: any, b: any) => a.semester - b.semester);
+									const gpas: string[] = ordered.map((s: any) => {
+										const first = s.exam_results?.[0];
+										if (!first) return '';
+										return first.gpa != null ? String(first.gpa) : '';
+									});
+									const limited = gpas.slice(0, 8);
+									setSemesters((prev) => {
+										const arr = Array.from({ length: Math.min(8, Math.max(prev.length, limited.length || 2)) }).map((_, i) => ({
+											id: crypto.randomUUID(),
+											gpa: limited[i] ?? '',
+										}));
+										return arr.length ? arr : prev;
+									});
+								} catch (err: any) {
+									setFetchError(err.message || 'Failed to fetch results');
+								} finally {
+									setLoading(false);
+								}
+							}}
+							className="grid grid-cols-1 md:grid-cols-12 gap-3 items-end border rounded-md p-3 mb-2"
+						>
+							<div className="md:col-span-5">
+								<label className="block text-xs text-gray-600 mb-1">Roll Number</label>
+								<input
+									type="text"
+									value={roll}
+									onChange={(e) => setRoll(e.target.value)}
+									placeholder="Enter roll number"
+									className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+								/>
+							</div>
+							<div className="md:col-span-4">
+								<label className="block text-xs text-gray-600 mb-1">Program</label>
+								<select
+									value={program}
+									onChange={(e) => setProgram(e.target.value)}
+									className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+								>
+									<option>Diploma in Engineering</option>
+								</select>
+							</div>
+							<div className="md:col-span-3 flex md:justify-end">
+								<button
+									type="submit"
+									disabled={loading || !roll}
+									className={`px-4 py-2 rounded-md text-white ${loading ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
+								>
+									{loading ? 'Fetching...' : 'Fetch & Auto-Fill'}
+								</button>
+							</div>
+						</form>
+						{fetchError && (
+							<p className="text-xs text-red-600">{fetchError}</p>
+						)}
+					</div>
 
 					<div className="mb-4">
 						<label className="block text-xs text-gray-600 mb-1">Regulation</label>

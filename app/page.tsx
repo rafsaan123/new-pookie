@@ -152,7 +152,7 @@ export default function HomePage() {
           {/* Illustration */}
           <div className="hidden lg:block">
             <div className="bg-white rounded-2xl shadow-lg p-4">
-              <Image src="/illustrations/result-check.svg" alt="Result checking" width={800} height={600} className="w-full h-auto" />
+              <Image src="/illustrations/hero.png" alt="Student checking BTEB results" width={800} height={600} className="w-full h-auto" />
             </div>
           </div>
 
@@ -163,49 +163,53 @@ export default function HomePage() {
             </h2>
 
             <form action={handleSubmit}>
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-800 mb-1">Exam / Curriculum</label>
+                  <select
+                    name="program"
+                    value={program}
+                    onChange={(e) => setProgram(e.target.value)}
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="Diploma in Engineering">Diploma In Engineering</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-800 mb-1">Regulation</label>
+                  <select
+                    name="regulation"
+                    value={regulation}
+                    onChange={(e) => setRegulation(e.target.value)}
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="any">Any</option>
+                    <option value="2010">2010</option>
+                    <option value="2016">2016</option>
+                    <option value="2022">2022</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-800 mb-1">Roll Number</label>
                   <input
                     type="text"
                     name="studentId"
                     value={studentId}
                     onChange={(e) => setStudentId(e.target.value)}
-                    placeholder="Enter BTEB Roll Number"
-                    className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="Enter BTEB roll number to search results"
+                    placeholder="Enter your 6-digit roll number"
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
-                  <select
-                    name="regulation"
-                    value={regulation}
-                    onChange={(e) => setRegulation(e.target.value)}
-                    className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="Select BTEB regulation year"
-                  >
-                    <option value="2010">2010</option>
-                    <option value="2016">2016</option>
-                    <option value="2022">2022</option>
-                  </select>
-                  <select
-                    name="program"
-                    value={program}
-                    onChange={(e) => setProgram(e.target.value)}
-                    className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="Select diploma program type"
-                  >
-                    <option value="Diploma in Engineering">Diploma in Engineering</option>
-                  </select>
                 </div>
 
                 <button
                   type="submit"
                   disabled={isPending}
-                  className={`w-full px-4 py-3 rounded-md text-white text-sm font-medium ${
-                    isPending ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'
+                  className={`w-full px-4 py-3 rounded-lg text-white text-base font-semibold ${
+                    isPending ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
                   }`}
-                  aria-label="Search BTEB results"
                 >
-                  {isPending ? 'Searching BTEB Results...' : 'Search BTEB Results 2025'}
+                  {isPending ? 'Fetching Result...' : 'View Result'}
                 </button>
               </div>
             </form>
@@ -302,6 +306,17 @@ export default function HomePage() {
                 </div>
               </div>
             )}
+            {/* SEO intro put under card for SEO */}
+            <div className="mt-6 pt-6 border-t">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                Bangladesh Technical Education Board (BTEB) Results 2025 - Diploma & Polytechnic Results
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Check your <strong>BTEB results 2025</strong> instantly with our fast and reliable result search system. 
+                Get your <strong>diploma results</strong> and <strong>polytechnic results</strong> for Engineering programs. 
+                View detailed semester results, GPA scores, and referred subjects information online. Search by roll number for instant access to your academic performance.
+              </p>
+            </div>
           </div>
         </div>
 

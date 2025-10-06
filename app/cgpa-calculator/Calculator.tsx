@@ -71,91 +71,17 @@ export default function Calculator() {
 	return (
 		<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+				{/* Left: CGPA Calculator panel */}
 				<section className="bg-white rounded-lg shadow-lg p-6">
-					<h2 className="text-2xl font-semibold text-gray-800 mb-6">Enter Semester GPAs</h2>
-
-					<div className="mb-6">
-						<h3 className="text-sm font-semibold text-gray-800 mb-2">Fetch Results and Auto-Fill GPA</h3>
-						<form
-							onSubmit={async (e) => {
-								e.preventDefault();
-								setFetchError(null);
-								setLoading(true);
-								try {
-									const params = new URLSearchParams({ studentId: roll, regulation, program });
-									const res = await fetch('/api/data-fetch?' + params.toString());
-									if (!res.ok) {
-										const err = await res.json();
-										throw new Error(err.error || 'Failed to fetch');
-									}
-									const data = await res.json();
-									// data is StudyAidResultData shape
-									const ordered = data.semester_results
-										.slice()
-										.sort((a: any, b: any) => a.semester - b.semester);
-									const gpas: string[] = ordered.map((s: any) => {
-										const first = s.exam_results?.[0];
-										if (!first) return '';
-										return first.gpa != null ? String(first.gpa) : '';
-									});
-									const limited = gpas.slice(0, 8);
-									setSemesters((prev) => {
-										const arr = Array.from({ length: Math.min(8, Math.max(prev.length, limited.length || 2)) }).map((_, i) => ({
-											id: crypto.randomUUID(),
-											gpa: limited[i] ?? '',
-										}));
-										return arr.length ? arr : prev;
-									});
-								} catch (err: any) {
-									setFetchError(err.message || 'Failed to fetch results');
-								} finally {
-									setLoading(false);
-								}
-							}}
-							className="grid grid-cols-1 md:grid-cols-12 gap-3 items-end border rounded-md p-3 mb-2"
-						>
-							<div className="md:col-span-5">
-								<label className="block text-xs text-gray-600 mb-1">Roll Number</label>
-								<input
-									type="text"
-									value={roll}
-									onChange={(e) => setRoll(e.target.value)}
-									placeholder="Enter roll number"
-									className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-								/>
-							</div>
-							<div className="md:col-span-4">
-								<label className="block text-xs text-gray-600 mb-1">Program</label>
-								<select
-									value={program}
-									onChange={(e) => setProgram(e.target.value)}
-									className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-								>
-									<option>Diploma in Engineering</option>
-								</select>
-							</div>
-							<div className="md:col-span-3 flex md:justify-end">
-								<button
-									type="submit"
-									disabled={loading || !roll}
-									className={`px-4 py-2 rounded-md text-white ${loading ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
-								>
-									{loading ? 'Fetching...' : 'Fetch & Auto-Fill'}
-								</button>
-							</div>
-						</form>
-						{fetchError && (
-							<p className="text-xs text-red-600">{fetchError}</p>
-						)}
-					</div>
+					<h2 className="text-3xl font-bold text-gray-900 mb-1">CGPA Calculator</h2>
+					<p className="text-sm text-gray-600 mb-6">Calculate your Final CGPA!</p>
 
 					<div className="mb-4">
-						<label className="block text-xs text-gray-600 mb-1">Regulation</label>
+						<label className="block text-xs text-gray-600 mb-1">Regulation <span className="text-red-500">*</span></label>
 						<select
 							value={regulation}
 							onChange={(e) => setRegulation(e.target.value as '2010' | '2016' | '2022')}
-							className="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-							aria-label="Select BTEB regulation"
+							className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
 						>
 							<option value="2010">2010</option>
 							<option value="2016">2016</option>
@@ -163,106 +89,144 @@ export default function Calculator() {
 						</select>
 					</div>
 
-					<div className="space-y-4">
-						{semesters.map((s, idx) => {
-							const gpaNum = parseFloat(s.gpa);
-							const gpaInvalid = s.gpa !== '' && (isNaN(gpaNum) || gpaNum < 0 || gpaNum > 4);
-							const weightPct = tableWeights[idx] ?? 0;
-
+					{/* 8 semester inputs in two columns */}
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+						{Array.from({ length: 8 }).map((_, idx) => {
+							const current = semesters[idx] ?? { id: `s-${idx}`, gpa: '' } as SemesterEntry;
+							const gpaNum = parseFloat(current.gpa);
+							const gpaInvalid = current.gpa !== '' && (isNaN(gpaNum) || gpaNum < 0 || gpaNum > 4);
+							const ord = idx === 0 ? '1st' : idx === 1 ? '2nd' : idx === 2 ? '3rd' : `${idx + 1}th`;
 							return (
-								<div key={s.id} className="grid grid-cols-1 md:grid-cols-12 gap-3 items-end border rounded-md p-3">
-									<div className="md:col-span-3">
-										<label className="block text-xs text-gray-600 mb-1">Semester</label>
-										<div className="text-sm font-medium">{idx + 1}</div>
-										<p className="text-[11px] text-gray-500">Weight: {weightPct}%</p>
-									</div>
-									<div className="md:col-span-8">
-										<label className="block text-xs text-gray-600 mb-1">GPA (0.00 - 4.00)</label>
-										<input
-											type="number"
-											step="0.01"
-											min={0}
-											max={4}
-											value={s.gpa}
-											onChange={(e) => updateSemester(s.id, e.target.value)}
-											placeholder="e.g., 3.25"
-											className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 ${gpaInvalid ? 'border-red-400 focus:ring-red-300' : 'focus:ring-blue-500'}`}
-											aria-label={`Enter GPA for semester ${idx + 1}`}
-										/>
-										{gpaInvalid && (
-											<p className="text-xs text-red-600 mt-1">Enter a valid GPA between 0.00 and 4.00</p>
-										)}
-									</div>
-									<div className="md:col-span-1 flex md:justify-end">
-										<button
-											type="button"
-											onClick={() => removeSemester(s.id)}
-											className="px-3 py-2 text-sm bg-red-50 text-red-600 rounded-md hover:bg-red-100"
-											aria-label={`Remove semester ${idx + 1}`}
-										>
-											Remove
-										</button>
-									</div>
+								<div key={current.id}>
+									<label className="block text-xs text-gray-600 mb-1">{ord} Semester</label>
+									<input
+										type="number"
+										step="0.01"
+										min={0}
+										max={4}
+										value={current.gpa}
+										onChange={(e) => {
+											setSemesters((prev) => {
+												const copy = [...prev];
+												copy[idx] = { id: copy[idx]?.id ?? `s-${idx}` as any, gpa: e.target.value } as SemesterEntry as any;
+												return copy.slice(0, 8);
+											});
+										}}
+										placeholder="0.00"
+										className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 ${gpaInvalid ? 'border-red-400 focus:ring-red-300' : 'focus:ring-blue-500'}`}
+									/>
 								</div>
 							);
 						})}
-						<div className="flex items-center gap-3">
-							<button
-								type="button"
-								onClick={addSemester}
-								className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md disabled:opacity-50"
-								disabled={semesters.length >= 8}
-							>
-								Add Semester
-							</button>
-							<button
-								type="button"
-								onClick={resetAll}
-								className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-md"
-							>
-								Reset
-							</button>
-						</div>
+					</div>
+
+					<div className="flex items-center gap-3 mt-6">
+						<button
+							type="button"
+							onClick={() => setSemesters((prev) => prev.map((p) => ({ ...p, gpa: '' })))}
+							className="px-4 py-2 bg-rose-100 text-rose-700 rounded-md hover:bg-rose-200"
+						>
+							Clear
+						</button>
+						<button
+							type="button"
+							onClick={() => void 0}
+							className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md"
+						>
+							Calculate CGPA
+						</button>
+					</div>
+
+					<div className="mt-6 text-xl font-semibold text-gray-900">
+						<span className="mr-2">CGPA:</span>
+						<span className="text-yellow-500">{formatNumber(cgpa, 2)}</span>
 					</div>
 				</section>
 
+				{/* Right: Fill Result panel */}
 				<section className="bg-white rounded-lg shadow-lg p-6">
-					<h2 className="text-2xl font-semibold text-gray-800 mb-6">CGPA Summary</h2>
-					<div className="space-y-4">
-						<div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
-							<p className="text-gray-700 text-sm">Your CGPA</p>
-							<p className="text-3xl font-bold text-blue-700">{formatNumber(cgpa, 2)}</p>
-							<p className="text-xs text-gray-500 mt-2">CGPA uses semester weightings for regulation {regulation}.</p>
+					<h2 className="text-3xl font-bold text-gray-900 mb-1">Fill Result</h2>
+					<p className="text-sm text-gray-600 mb-6">Lazy to Type? Fill your result Automatically!</p>
+
+					<form
+						onSubmit={async (e) => {
+							e.preventDefault();
+							setFetchError(null);
+							setLoading(true);
+							try {
+								const params = new URLSearchParams({ studentId: roll, regulation, program });
+								const res = await fetch('/api/data-fetch?' + params.toString());
+								if (!res.ok) {
+									const err = await res.json();
+									throw new Error(err.error || 'Failed to fetch');
+								}
+								const data = await res.json();
+								const ordered = data.semester_results
+									.slice()
+									.sort((a: any, b: any) => a.semester - b.semester);
+								const gpas: string[] = ordered.map((s: any) => {
+									const first = s.exam_results?.[0];
+									if (!first) return '';
+									return first.gpa != null ? String(first.gpa) : '';
+								});
+								const limited = gpas.slice(0, 8);
+								setSemesters(() => {
+									return Array.from({ length: Math.max(2, limited.length) }).map((_, i) => ({
+										id: crypto.randomUUID(),
+										gpa: limited[i] ?? '',
+									}));
+								});
+							} catch (err: any) {
+								setFetchError(err.message || 'Failed to fetch results');
+							} finally {
+								setLoading(false);
+							}
+						}}
+						className="space-y-4"
+					>
+						<div>
+							<label className="block text-xs text-gray-600 mb-1">Exam <span className="text-red-500">*</span></label>
+							<select
+								value={program}
+								onChange={(e) => setProgram(e.target.value)}
+								className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+							>
+								<option>Diploma In Engineering</option>
+							</select>
 						</div>
 						<div>
-							<h3 className="text-sm font-semibold text-gray-800 mb-2">Semester Weight Table</h3>
-							<div className="overflow-x-auto">
-								<table className="min-w-full text-xs text-left border">
-									<thead className="bg-gray-50">
-										<tr>
-											<th className="px-3 py-2 border">Semester</th>
-											<th className="px-3 py-2 border">2010</th>
-											<th className="px-3 py-2 border">2016</th>
-											<th className="px-3 py-2 border">2022</th>
-										</tr>
-									</thead>
-									<tbody>
-										{Array.from({ length: 8 }).map((_, i) => (
-											<tr key={i}>
-												<td className="px-3 py-2 border">{i + 1}{i === 0 ? 'st' : i === 1 ? 'nd' : i === 2 ? 'rd' : 'th'}</td>
-												<td className="px-3 py-2 border">{REGULATION_WEIGHTS['2010'][i]}%</td>
-												<td className="px-3 py-2 border">{REGULATION_WEIGHTS['2016'][i]}%</td>
-												<td className="px-3 py-2 border">{REGULATION_WEIGHTS['2022'][i]}%</td>
-											</tr>
-										))}
-									</tbody>
-								</table>
-							</div>
+							<label className="block text-xs text-gray-600 mb-1">Regulation <span className="text-red-500">*</span></label>
+							<select
+								value={regulation}
+								onChange={(e) => setRegulation(e.target.value as '2010' | '2016' | '2022')}
+								className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+							>
+								<option value="2010">2010</option>
+								<option value="2016">2016</option>
+								<option value="2022">2022</option>
+							</select>
 						</div>
-						<div className="text-xs text-gray-500">
-							Note: Calculation normalizes weights to semesters with entered GPA.
+						<div>
+							<label className="block text-xs text-gray-600 mb-1">Roll Number <span className="text-red-500">*</span></label>
+							<input
+								type="text"
+								value={roll}
+								onChange={(e) => setRoll(e.target.value)}
+								placeholder="600000"
+								className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+							/>
 						</div>
-					</div>
+						<div>
+							<button
+								type="submit"
+								disabled={loading || !roll}
+								className={`w-full px-4 py-2 rounded-md text-white ${loading ? 'bg-blue-400 cursor-not-allowed' : 'bg-sky-600 hover:bg-sky-700'}`}
+							>
+								{loading ? 'Fetching...' : 'Fill Result'}
+							</button>
+						</div>
+						{fetchError && <p className="text-xs text-red-600">{fetchError}</p>}
+					</form>
 				</section>
 			</div>
 		</main>

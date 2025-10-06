@@ -147,17 +147,10 @@ export default function HomePage() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Illustration + Tool Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Illustration */}
-          <div className="hidden lg:block">
-            <div className="bg-white rounded-2xl shadow-lg p-4">
-              <Image src="/illustrations/hero.png" alt="Student checking BTEB results" width={800} height={600} className="w-full h-auto" />
-            </div>
-          </div>
-
+        {/* Centered Tool */}
+        <div className="flex justify-center items-stretch">
           {/* Result Search Section */}
-          <div className="bg-white rounded-xl shadow-xl p-6 border border-gray-100 max-w-2xl lg:ml-auto">
+          <div className="bg-white rounded-xl shadow-xl p-6 border border-gray-100 w-full max-w-2xl">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">
               Search BTEB Results 2025 - Diploma & Polytechnic Result Check
             </h2>

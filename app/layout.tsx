@@ -6,8 +6,8 @@ import GoogleAnalytics from './components/GoogleAnalytics'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'BTEB Results 2025 - Check Diploma Results Online | Bangladesh Technical Education Board',
-  description: 'Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering, Technology & Agriculture programs. Get GPA, semester results & referred subjects online.',
+  title: 'BTEB Results Hub - Individual Results, CGPA Calculator, Booklists',
+  description: 'BTEB Results Hub: Check individual diploma results instantly and calculate CGPA using BTEB regulations (2010/2016/2022).',
   keywords: [
     'bteb results',
     'bteb result 2025',
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
     'diploma result by roll number',
     'polytechnic result by roll number'
   ],
-  authors: [{ name: 'BTEB Result Search' }],
-  creator: 'BTEB Result Search',
-  publisher: 'BTEB Result Search',
+  authors: [{ name: 'BTEB Results Hub' }],
+  creator: 'BTEB Results Hub',
+  publisher: 'BTEB Results Hub',
   formatDetection: {
     email: false,
     address: false,
@@ -73,10 +73,10 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'BTEB Results 2025 - Check Diploma Results Online',
-    description: 'Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering, Technology & Agriculture programs.',
+    title: 'BTEB Results Hub',
+    description: 'Check individual BTEB results and calculate CGPA online.',
     url: 'https://bteb-results.vercel.app',
-    siteName: 'BTEB Result Search',
+    siteName: 'BTEB Results Hub',
     images: [
       {
         url: '/og-image.jpg',
@@ -90,8 +90,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BTEB Results 2025 - Check Diploma Results Online',
-    description: 'Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering, Technology & Agriculture programs.',
+    title: 'BTEB Results Hub',
+    description: 'Check BTEB diploma results and calculate CGPA online.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -120,8 +120,8 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "BTEB Results 2025 - Check Diploma Results Online",
-    "description": "Check BTEB results 2025 instantly. Search diploma results by roll number for Engineering, Technology & Agriculture programs. Get GPA, semester results & referred subjects online.",
+    "name": "BTEB Results Hub",
+    "description": "Check individual BTEB results and calculate CGPA online with regulation-based weights.",
     "url": "https://bteb-results.vercel.app",
     "applicationCategory": "EducationApplication",
     "operatingSystem": "Web Browser",
@@ -132,7 +132,7 @@ export default function RootLayout({
     },
     "provider": {
       "@type": "Organization",
-      "name": "BTEB Result Search",
+      "name": "BTEB Results Hub",
       "url": "https://bteb-results.vercel.app"
     },
     "featureList": [
@@ -183,15 +183,13 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-14">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-md bg-blue-600 text-white flex items-center justify-center font-bold">B</div>
-                <a href="/" className="text-gray-900 font-semibold hover:text-blue-600">BTEB Result Search</a>
+                <img src="/logo.png" alt="BTEB Results Hub" className="w-8 h-8 rounded" />
+                <a href="/" className="text-gray-900 font-semibold hover:text-blue-600">BTEB Results Hub</a>
               </div>
               <div className="hidden md:flex items-center gap-6 text-sm">
-                <a href="/" className="text-gray-700 hover:text-blue-600">Home</a>
-                <a href="/diploma-result-check" className="text-gray-700 hover:text-blue-600">Diploma Results</a>
-                <a href="/polytechnic-result-check" className="text-gray-700 hover:text-blue-600">Polytechnic Results</a>
-                <a href="/bteb-results-2025" className="text-gray-700 hover:text-blue-600">BTEB Results 2025</a>
-                <a href="/cgpa-calculator" className="text-white bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-md">CGPA Calculator</a>
+                <a href="/" className="text-gray-700 hover:text-blue-600">Individual Results</a>
+                <a href="/cgpa-calculator" className="text-white bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-md">GPA Calculator</a>
+                <a href="/booklist" className="text-gray-700 hover:text-blue-600">Booklists</a>
               </div>
             </div>
           </div>

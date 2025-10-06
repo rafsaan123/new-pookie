@@ -144,21 +144,6 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* SEO Content Section */}
-      <section className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="text-center">
-            <h2 className="text-lg font-semibold text-gray-800 mb-2">
-              Bangladesh Technical Education Board (BTEB) Results 2025 - Diploma & Polytechnic Results
-            </h2>
-            <p className="text-gray-600 text-sm max-w-4xl mx-auto">
-              Check your <strong>BTEB results 2025</strong> instantly with our fast and reliable result search system. 
-              Get your <strong>diploma results</strong> and <strong>polytechnic results</strong> for Engineering programs. 
-              View detailed semester results, GPA scores, and referred subjects information online. Search by roll number for instant access to your academic performance.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -172,7 +157,7 @@ export default function HomePage() {
           </div>
 
           {/* Result Search Section */}
-          <div className="bg-white rounded-lg shadow-lg p-6">
+          <div className="bg-white rounded-xl shadow-xl p-6 border border-gray-100 max-w-2xl lg:ml-auto">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">
               Search BTEB Results 2025 - Diploma & Polytechnic Result Check
             </h2>
@@ -215,7 +200,7 @@ export default function HomePage() {
                 <button
                   type="submit"
                   disabled={isPending}
-                  className={`w-full px-4 py-2 rounded-md text-white ${
+                  className={`w-full px-4 py-3 rounded-md text-white text-sm font-medium ${
                     isPending ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'
                   }`}
                   aria-label="Search BTEB results"
@@ -321,7 +306,7 @@ export default function HomePage() {
         </div>
 
         {/* Features Section */}
-        <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
+        <div className="mt-12 bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">
               BTEB Result Search Features - Diploma & Polytechnic Results 2025
             </h2>
@@ -407,7 +392,7 @@ export default function HomePage() {
             </div>
         </div>
 
-        {/* SEO Content Section */}
+        {/* SEO Content Section (moved below tool) */}
         <section className="mt-12 bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">
             BTEB Results 2025 - Complete Guide to Diploma & Polytechnic Results

@@ -44,7 +44,7 @@ export default function NavBar() {
 								);
 							})}
 						</div>
-
+					</div>
 					{/* Mobile toggle */}
 					<button
 						className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100"

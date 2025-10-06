@@ -306,18 +306,19 @@ export default function HomePage() {
                 </div>
               </div>
             )}
-            {/* SEO intro put under card for SEO */}
-            <div className="mt-6 pt-6 border-t">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                Bangladesh Technical Education Board (BTEB) Results 2025 - Diploma & Polytechnic Results
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Check your <strong>BTEB results 2025</strong> instantly with our fast and reliable result search system. 
-                Get your <strong>diploma results</strong> and <strong>polytechnic results</strong> for Engineering programs. 
-                View detailed semester results, GPA scores, and referred subjects information online. Search by roll number for instant access to your academic performance.
-              </p>
-            </div>
           </div>
+        </div>
+
+        {/* Blended SEO intro under hero */}
+        <div className="mt-8 text-center max-w-4xl mx-auto text-gray-600">
+          <h3 className="text-lg font-semibold text-gray-800 mb-2">
+            Bangladesh Technical Education Board (BTEB) Results 2025 - Diploma & Polytechnic Results
+          </h3>
+          <p className="text-sm">
+            Check your <strong>BTEB results 2025</strong> instantly with our fast and reliable result search system. 
+            Get your <strong>diploma results</strong> and <strong>polytechnic results</strong> for Engineering programs. 
+            View detailed semester results, GPA scores, and referred subjects information online. Search by roll number for instant access to your academic performance.
+          </p>
         </div>
 
         {/* Features Section */}

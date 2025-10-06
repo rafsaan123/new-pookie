@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import GoogleAnalytics from './components/GoogleAnalytics'
+import NavBar from './components/NavBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -179,21 +180,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <GoogleAnalytics />
-        <nav className="bg-white/90 backdrop-blur border-b sticky top-0 z-40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-14">
-              <div className="flex items-center gap-3">
-                <img src="/logo.png" alt="BTEB Results Hub" className="w-8 h-8 rounded" />
-                <a href="/" className="text-gray-900 font-semibold hover:text-blue-600">BTEB Results Hub</a>
-              </div>
-              <div className="hidden md:flex items-center gap-6 text-sm">
-                <a href="/" className="text-gray-700 hover:text-blue-600">Individual Results</a>
-                <a href="/cgpa-calculator" className="text-white bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-md">GPA Calculator</a>
-                <a href="/booklist" className="text-gray-700 hover:text-blue-600">Booklists</a>
-              </div>
-            </div>
-          </div>
-        </nav>
+        <NavBar />
         {children}
       </body>
     </html>

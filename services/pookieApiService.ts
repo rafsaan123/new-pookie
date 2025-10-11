@@ -79,7 +79,7 @@ export interface StudyAidResultData {
 }
 
 export class PookieApiService {
-  private static readonly BASE_URL = 'https://pookie-backend.vercel.app';
+  private static readonly BASE_URL = 'https://yey-green.vercel.app';
   private static readonly TIMEOUT = 15000; // 15 seconds
 
   /**

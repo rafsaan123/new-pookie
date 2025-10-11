@@ -269,6 +269,17 @@ export default function HomePage() {
                   </div>
                 </div>
 
+                {/* CGPA Display */}
+                {result.cgpa && (
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200">
+                    <h3 className="text-lg font-semibold text-blue-800 mb-2">Cumulative Grade Point Average (CGPA)</h3>
+                    <div className="text-center">
+                      <div className="text-4xl font-bold text-blue-600 mb-1">{result.cgpa}</div>
+                      <p className="text-sm text-blue-600">Out of 4.0</p>
+                    </div>
+                  </div>
+                )}
+
                 {/* Additional Information */}
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <h3 className="text-lg font-semibold text-gray-700 mb-2">Additional Information</h3>
@@ -293,6 +304,12 @@ export default function HomePage() {
                       <div>
                         <p className="text-xs text-gray-600">Latest Result</p>
                         <p className="font-medium">{result.latest_result.gpa || 'Referred'}</p>
+                      </div>
+                    )}
+                    {result.cgpa && (
+                      <div>
+                        <p className="text-xs text-gray-600">CGPA</p>
+                        <p className="font-medium text-blue-600">{result.cgpa}</p>
                       </div>
                     )}
                   </div>

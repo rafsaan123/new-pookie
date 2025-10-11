@@ -76,6 +76,7 @@ export interface StudyAidResultData {
       passed: boolean;
     }>;
   } | null;
+  cgpa?: number;
 }
 
 export class PookieApiService {
@@ -207,6 +208,11 @@ export class PookieApiService {
       reffereds: semesterResults[0].exam_results[0].reffereds
     } : null;
 
+    // Extract CGPA from cgpaData
+    const cgpa = apiData.cgpaData && apiData.cgpaData.length > 0 
+      ? parseFloat(apiData.cgpaData[0].cgpa) 
+      : undefined;
+
     return {
       exam: apiData.exam,
       roll: parseInt(apiData.roll),
@@ -219,7 +225,8 @@ export class PookieApiService {
       },
       current_reffereds: currentReferreds,
       semester_results: semesterResults,
-      latest_result: latestResult
+      latest_result: latestResult,
+      cgpa: cgpa
     };
   }
 

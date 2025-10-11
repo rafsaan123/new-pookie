@@ -1,9 +1,9 @@
 // Pookie Backend API Service for Study Aid
 // Handles integration with the pookie-backend result API
-// Fixed version with correct TypeScript interfaces
 
 export interface PookieApiResponse {
   success: boolean;
+  time: string;
   roll: string;
   regulation: string;
   exam: string;
@@ -15,17 +15,21 @@ export interface PookieApiResponse {
   resultData: Array<{
     publishedAt: string;
     semester: string;
-    result: {
+    result: string | {
       gpa: string;
       ref_subjects: string[];
     };
     passed: boolean;
-    gpa: string;
+    gpa?: string;
   }>;
   cgpaData: Array<{
+    semester: string;
     cgpa: string;
     publishedAt: string;
   }>;
+  source?: string;
+  found_in_project?: string;
+  projects_searched?: string[];
 }
 
 export interface StudyAidResultData {
@@ -72,10 +76,6 @@ export interface StudyAidResultData {
       passed: boolean;
     }>;
   } | null;
-  cgpa?: {
-    value: number;
-    publishedAt: string;
-  };
 }
 
 export class PookieApiService {
@@ -170,7 +170,7 @@ export class PookieApiService {
       };
 
       // Handle referred subjects
-      if (result.result && result.result.ref_subjects) {
+      if (result.result && typeof result.result === 'object' && result.result.ref_subjects) {
         examResult.reffereds = result.result.ref_subjects.map((subject: string) => {
           const subjectCode = parseInt(subject.split('(')[0]);
           const referredSubject = {
@@ -207,12 +207,6 @@ export class PookieApiService {
       reffereds: semesterResults[0].exam_results[0].reffereds
     } : null;
 
-    // Extract CGPA data
-    const cgpaData = apiData.cgpaData.length > 0 ? {
-      value: parseFloat(apiData.cgpaData[0].cgpa),
-      publishedAt: apiData.cgpaData[0].publishedAt
-    } : undefined;
-
     return {
       exam: apiData.exam,
       roll: parseInt(apiData.roll),
@@ -225,8 +219,7 @@ export class PookieApiService {
       },
       current_reffereds: currentReferreds,
       semester_results: semesterResults,
-      latest_result: latestResult,
-      cgpa: cgpaData
+      latest_result: latestResult
     };
   }
 
@@ -235,18 +228,13 @@ export class PookieApiService {
    */
   static async checkHealth(): Promise<{ isHealthy: boolean; error?: string }> {
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000);
-      
       const response = await fetch(`${this.BASE_URL}/health`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
         },
-        signal: controller.signal
+        signal: AbortSignal.timeout(5000) // 5 second timeout for health check
       });
-
-      clearTimeout(timeoutId);
 
       if (response.ok) {
         const data = await response.json();
@@ -255,109 +243,7 @@ export class PookieApiService {
         return { isHealthy: false, error: `Health check failed with status: ${response.status}` };
       }
     } catch (error: any) {
-      if (error.name === 'AbortError') {
-        return { isHealthy: false, error: 'Health check timed out' };
-      }
       return { isHealthy: false, error: error.message || 'Health check failed' };
-    }
-  }
-
-  /**
-   * Get available programs from the API
-   */
-  static async getPrograms(): Promise<{ programs: string[]; error: string | null }> {
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000);
-
-      const response = await fetch(`${this.BASE_URL}/api/programs`, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-        },
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
-
-      if (!response.ok) {
-        return { programs: [], error: `Failed to fetch programs: ${response.status}` };
-      }
-
-      const data = await response.json();
-      return { programs: data.programs || [], error: null };
-
-    } catch (error: any) {
-      if (error.name === 'AbortError') {
-        return { programs: [], error: 'Request timed out' };
-      }
-      return { programs: [], error: error.message || 'Failed to fetch programs' };
-    }
-  }
-
-  /**
-   * Get available regulations for a specific program
-   */
-  static async getRegulations(program: string): Promise<{ regulations: string[]; error: string | null }> {
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000);
-
-      const response = await fetch(`${this.BASE_URL}/api/regulations/${encodeURIComponent(program)}`, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-        },
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
-
-      if (!response.ok) {
-        return { regulations: [], error: `Failed to fetch regulations: ${response.status}` };
-      }
-
-      const data = await response.json();
-      return { regulations: data.regulations || [], error: null };
-
-    } catch (error: any) {
-      if (error.name === 'AbortError') {
-        return { regulations: [], error: 'Request timed out' };
-      }
-      return { regulations: [], error: error.message || 'Failed to fetch regulations' };
-    }
-  }
-
-  /**
-   * Get database statistics
-   */
-  static async getStats(): Promise<{ stats: any; error: string | null }> {
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000);
-
-      const response = await fetch(`${this.BASE_URL}/api/stats`, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-        },
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
-
-      if (!response.ok) {
-        return { stats: null, error: `Failed to fetch stats: ${response.status}` };
-      }
-
-      const data = await response.json();
-      return { stats: data, error: null };
-
-    } catch (error: any) {
-      if (error.name === 'AbortError') {
-        return { stats: null, error: 'Request timed out' };
-      }
-      return { stats: null, error: error.message || 'Failed to fetch stats' };
     }
   }
 }

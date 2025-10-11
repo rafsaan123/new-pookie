@@ -72,6 +72,10 @@ export interface StudyAidResultData {
       passed: boolean;
     }>;
   } | null;
+  cgpa?: {
+    value: number;
+    publishedAt: string;
+  };
 }
 
 export class PookieApiService {
@@ -203,6 +207,12 @@ export class PookieApiService {
       reffereds: semesterResults[0].exam_results[0].reffereds
     } : null;
 
+    // Extract CGPA data
+    const cgpaData = apiData.cgpaData.length > 0 ? {
+      value: parseFloat(apiData.cgpaData[0].cgpa),
+      publishedAt: apiData.cgpaData[0].publishedAt
+    } : undefined;
+
     return {
       exam: apiData.exam,
       roll: parseInt(apiData.roll),
@@ -215,7 +225,8 @@ export class PookieApiService {
       },
       current_reffereds: currentReferreds,
       semester_results: semesterResults,
-      latest_result: latestResult
+      latest_result: latestResult,
+      cgpa: cgpaData
     };
   }
 

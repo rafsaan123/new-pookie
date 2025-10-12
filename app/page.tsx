@@ -301,29 +301,27 @@ export default function HomePage() {
             </div>
           )}
 
-          {/* Ad 1 - After results */}
-          {mounted && result && (
-            <div className="mt-8 mb-8">
-          <div className="bg-gray-50 rounded-lg p-4 text-center">
-            <div id="ad-1" className="min-h-[90px] flex items-center justify-center">
-                  <div dangerouslySetInnerHTML={{
-                    __html: `
-                      <script type="text/javascript">
-                        atOptions = {
-                          'key' : 'f9fd39af8932f3a0a9c36fefbb67ec82',
-                          'format' : 'iframe',
-                          'height' : 90,
-                          'width' : 728,
-                          'params' : {}
-                        };
-                        document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
-                      </script>
-                    `
-                  }} />
-                </div>
+          {/* Ad 1 - After search form */}
+          <div className="mt-8 mb-8">
+            <div className="bg-gray-50 rounded-lg p-4 text-center">
+              <div id="ad-1" className="min-h-[90px] flex items-center justify-center">
+                <div dangerouslySetInnerHTML={{
+                  __html: `
+                    <script type="text/javascript">
+                      atOptions = {
+                        'key' : 'f9fd39af8932f3a0a9c36fefbb67ec82',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                      };
+                      document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
+                    </script>
+                  `
+                }} />
               </div>
             </div>
-          )}
+          </div>
         </div>
       </main>
 

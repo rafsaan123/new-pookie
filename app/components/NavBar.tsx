@@ -8,7 +8,7 @@ import { useState } from 'react';
 const links = [
 	{ href: '/', label: 'Individual Results' },
 	{ href: '/cgpa-calculator', label: 'GPA Calculator' },
-	{ href: '/booklist', label: 'Booklists' },
+	{ href: '/booklists', label: 'Booklists' },
 ];
 
 export default function NavBar() {

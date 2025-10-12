@@ -170,9 +170,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🔗 Important Links
 
-- **Live Site**: [https://bteb-results.vercel.app](https://bteb-results.vercel.app)
-- **Sitemap**: [https://bteb-results.vercel.app/sitemap.xml](https://bteb-results.vercel.app/sitemap.xml)
-- **Robots**: [https://bteb-results.vercel.app/robots.txt](https://bteb-results.vercel.app/robots.txt)
+- **Live Site**: [https://btebresultshub.com](https://btebresultshub.com)
+- **Sitemap**: [https://btebresultshub.com/sitemap.xml](https://btebresultshub.com/sitemap.xml)
+- **Robots**: [https://btebresultshub.com/robots.txt](https://btebresultshub.com/robots.txt)
 
 ## 📞 Support
 

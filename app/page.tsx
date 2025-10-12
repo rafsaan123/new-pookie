@@ -194,11 +194,10 @@ export default function HomePage() {
             <button
               type="submit"
               disabled={isPending}
-              className={`w-full px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
-                isPending
-                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  : 'bg-gray-900 text-white hover:bg-gray-800'
-              }`}
+              className={isPending 
+                ? 'w-full px-6 py-3 rounded-lg font-medium transition-all duration-200 bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'w-full px-6 py-3 rounded-lg font-medium transition-all duration-200 bg-gray-900 text-white hover:bg-gray-800'
+              }
             >
               {isPending ? 'Searching...' : 'Search Results'}
             </button>

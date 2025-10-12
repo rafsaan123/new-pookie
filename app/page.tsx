@@ -307,22 +307,22 @@ export default function HomePage() {
       <section className="bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="bg-gray-50 rounded-lg p-4 text-center">
-            <div id="ad-1" className="min-h-[90px] flex items-center justify-center">
-              <div dangerouslySetInnerHTML={{
-                __html: `
-                  <script type="text/javascript">
-                    atOptions = {
-                      'key' : 'f9fd39af8932f3a0a9c36fefbb67ec82',
-                      'format' : 'iframe',
-                      'height' : 90,
-                      'width' : 728,
-                      'params' : {}
-                    };
-                    document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
-                  </script>
-                `
-              }} />
-            </div>
+              <div id="ad-1" className="min-h-[90px] flex items-center justify-center">
+                <div dangerouslySetInnerHTML={{
+                  __html: `
+                    <script type="text/javascript">
+                      atOptions = {
+                        'key' : 'f9fd39af8932f3a0a9c36fefbb67ec82',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                      };
+                    </script>
+                    <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
+                  `
+                }} />
+              </div>
           </div>
         </div>
       </section>
@@ -418,8 +418,8 @@ export default function HomePage() {
                       'width' : 728,
                       'params' : {}
                     };
-                    document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
                   </script>
+                  <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
                 `
               }} />
             </div>
@@ -548,8 +548,8 @@ export default function HomePage() {
                       'width' : 728,
                       'params' : {}
                     };
-                    document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
                   </script>
+                  <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
                 `
               }} />
             </div>

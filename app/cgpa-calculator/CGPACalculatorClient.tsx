@@ -46,8 +46,8 @@ export default function CGPACalculatorClient() {
                        'width' : 728,
                        'params' : {}
                      };
-                     document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
                    </script>
+                   <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
                  `
                }} />
              </div>
@@ -132,8 +132,8 @@ export default function CGPACalculatorClient() {
                        'width' : 728,
                        'params' : {}
                      };
-                     document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
                    </script>
+                   <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
                  `
                }} />
              </div>
@@ -156,8 +156,8 @@ export default function CGPACalculatorClient() {
                        'width' : 728,
                        'params' : {}
                      };
-                     document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
                    </script>
+                   <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
                  `
                }} />
              </div>

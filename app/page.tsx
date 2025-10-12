@@ -77,7 +77,7 @@ export default function HomePage() {
           
           const script2 = document.createElement('script');
           script2.type = 'text/javascript';
-          script2.src = '//www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js';
+          script2.src = 'https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js';
           
           container.appendChild(script1);
           container.appendChild(script2);

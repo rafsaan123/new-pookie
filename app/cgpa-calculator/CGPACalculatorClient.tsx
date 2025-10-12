@@ -35,7 +35,6 @@ export default function CGPACalculatorClient() {
       <section className="bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="bg-gray-50 rounded-lg p-4 text-center">
-            <p className="text-xs text-gray-500 mb-2">Advertisement</p>
              <div id="cgpa-ad-1" className="min-h-[90px] flex items-center justify-center">
                <div dangerouslySetInnerHTML={{
                  __html: `
@@ -47,8 +46,8 @@ export default function CGPACalculatorClient() {
                        'width' : 728,
                        'params' : {}
                      };
+                     document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
                    </script>
-                   <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
                  `
                }} />
              </div>
@@ -122,7 +121,6 @@ export default function CGPACalculatorClient() {
       <section className="bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="bg-gray-50 rounded-lg p-4 text-center">
-            <p className="text-xs text-gray-500 mb-2">Advertisement</p>
              <div id="cgpa-ad-2" className="min-h-[90px] flex items-center justify-center">
                <div dangerouslySetInnerHTML={{
                  __html: `
@@ -134,8 +132,8 @@ export default function CGPACalculatorClient() {
                        'width' : 728,
                        'params' : {}
                      };
+                     document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
                    </script>
-                   <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
                  `
                }} />
              </div>
@@ -147,7 +145,6 @@ export default function CGPACalculatorClient() {
       <section className="bg-gray-50 border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
-            <p className="text-xs text-gray-500 mb-2">Advertisement</p>
              <div id="cgpa-ad-3" className="min-h-[90px] flex items-center justify-center">
                <div dangerouslySetInnerHTML={{
                  __html: `
@@ -159,8 +156,8 @@ export default function CGPACalculatorClient() {
                        'width' : 728,
                        'params' : {}
                      };
+                     document.write('<scr' + 'ipt type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></scr' + 'ipt>');
                    </script>
-                   <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
                  `
                }} />
              </div>

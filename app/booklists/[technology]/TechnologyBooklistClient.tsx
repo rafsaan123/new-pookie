@@ -15,37 +15,8 @@ export default function TechnologyBooklistClient({ initialData, initialError, te
   const [error, setError] = useState<string>(initialError);
 
   useEffect(() => {
-    // Load ads after hydration
-    const loadAds = () => {
-      const adContainers = ['tech-ad-1', 'tech-ad-2', 'tech-ad-3'];
-      adContainers.forEach((id) => {
-        const container = document.getElementById(id);
-        if (container) {
-          container.innerHTML = '';
-          
-          // Create script elements
-          const script1 = document.createElement('script');
-          script1.type = 'text/javascript';
-          script1.textContent = `atOptions = {
-            'key' : 'f9fd39af8932f3a0a9c36fefbb67ec82',
-            'format' : 'iframe',
-            'height' : 90,
-            'width' : 728,
-            'params' : {}
-          };`;
-          
-          const script2 = document.createElement('script');
-          script2.type = 'text/javascript';
-               script2.src = 'https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js';
-          
-          container.appendChild(script1);
-          container.appendChild(script2);
-        }
-      });
-    };
-    
-    // Load ads after a short delay to ensure DOM is ready
-    setTimeout(loadAds, 100);
+    // Ads are now loaded directly via dangerouslySetInnerHTML
+    // No additional JavaScript needed
   }, []);
 
   const getTechnologyName = (slug: string) => {
@@ -151,9 +122,22 @@ export default function TechnologyBooklistClient({ initialData, initialError, te
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
             <p className="text-xs text-gray-500 mb-2">Advertisement</p>
-            <div id="tech-ad-1" className="min-h-[90px] flex items-center justify-center">
-              <div className="text-gray-400 text-sm">Advertisement</div>
-            </div>
+             <div id="tech-ad-1" className="min-h-[90px] flex items-center justify-center">
+               <div dangerouslySetInnerHTML={{
+                 __html: `
+                   <script type="text/javascript">
+                     atOptions = {
+                       'key' : 'f9fd39af8932f3a0a9c36fefbb67ec82',
+                       'format' : 'iframe',
+                       'height' : 90,
+                       'width' : 728,
+                       'params' : {}
+                     };
+                   </script>
+                   <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
+                 `
+               }} />
+             </div>
           </div>
         </div>
       </section>
@@ -163,9 +147,22 @@ export default function TechnologyBooklistClient({ initialData, initialError, te
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="bg-gray-50 rounded-lg p-4 text-center">
             <p className="text-xs text-gray-500 mb-2">Advertisement</p>
-            <div id="tech-ad-2" className="min-h-[90px] flex items-center justify-center">
-              <div className="text-gray-400 text-sm">Advertisement</div>
-            </div>
+             <div id="tech-ad-2" className="min-h-[90px] flex items-center justify-center">
+               <div dangerouslySetInnerHTML={{
+                 __html: `
+                   <script type="text/javascript">
+                     atOptions = {
+                       'key' : 'f9fd39af8932f3a0a9c36fefbb67ec82',
+                       'format' : 'iframe',
+                       'height' : 90,
+                       'width' : 728,
+                       'params' : {}
+                     };
+                   </script>
+                   <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
+                 `
+               }} />
+             </div>
           </div>
         </div>
       </section>
@@ -175,9 +172,22 @@ export default function TechnologyBooklistClient({ initialData, initialError, te
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="bg-white rounded-lg p-4 text-center border border-gray-200">
             <p className="text-xs text-gray-500 mb-2">Advertisement</p>
-            <div id="tech-ad-3" className="min-h-[90px] flex items-center justify-center">
-              <div className="text-gray-400 text-sm">Advertisement</div>
-            </div>
+             <div id="tech-ad-3" className="min-h-[90px] flex items-center justify-center">
+               <div dangerouslySetInnerHTML={{
+                 __html: `
+                   <script type="text/javascript">
+                     atOptions = {
+                       'key' : 'f9fd39af8932f3a0a9c36fefbb67ec82',
+                       'format' : 'iframe',
+                       'height' : 90,
+                       'width' : 728,
+                       'params' : {}
+                     };
+                   </script>
+                   <script type="text/javascript" src="https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js"></script>
+                 `
+               }} />
+             </div>
           </div>
         </div>
       </section>

@@ -58,7 +58,7 @@ export default function HomePage() {
     
     // Load ads after hydration
     const loadAds = () => {
-      const adContainers = ['ad-1', 'ad-2', 'ad-3'];
+      const adContainers = ['ad-2', 'ad-3']; // Always visible ads
       adContainers.forEach((id, index) => {
         const container = document.getElementById(id);
         if (container) {
@@ -88,6 +88,38 @@ export default function HomePage() {
     // Load ads after a short delay to ensure DOM is ready
     setTimeout(loadAds, 100);
   }, []);
+
+  // Load ad-1 when results are displayed
+  useEffect(() => {
+    if (mounted && result) {
+      const loadAd1 = () => {
+        const container = document.getElementById('ad-1');
+        if (container) {
+          container.innerHTML = '';
+          
+          // Create script elements
+          const script1 = document.createElement('script');
+          script1.type = 'text/javascript';
+          script1.textContent = `atOptions = {
+            'key' : 'f9fd39af8932f3a0a9c36fefbb67ec82',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };`;
+          
+          const script2 = document.createElement('script');
+          script2.type = 'text/javascript';
+          script2.src = 'https://www.highperformanceformat.com/f9fd39af8932f3a0a9c36fefbb67ec82/invoke.js';
+          
+          container.appendChild(script1);
+          container.appendChild(script2);
+        }
+      };
+      
+      setTimeout(loadAd1, 100);
+    }
+  }, [mounted, result]);
 
   const handleSubmit = (formData: FormData) => {
     startTransition(async () => {

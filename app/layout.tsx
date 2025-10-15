@@ -385,6 +385,17 @@ export const metadata: Metadata = {
     'বিটিইবি রেজাল্ট কমপালসরি ডকুমেন্ট',
     'বিটিইবি রেজাল্ট অবলিগেটরি ডকুমেন্ট',
     'বিটিইবি রেজাল্ট বাইন্ডিং ডকুমেন্ট'
+    ,
+    // User-requested additional tags
+    'bteb result hub',
+    'bteb board result',
+    'bangladesh technical education board result check',
+    'bteb.result',
+    'btet result 2025',
+    'bteb results 2025',
+    'btet result',
+    'bteb result marksheet download',
+    'bteb result 2024'
   ],
   authors: [{ name: 'BTEB Results Hub' }],
   creator: 'BTEB Results Hub',

@@ -336,7 +336,8 @@ export default function HomePage() {
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               Check your <strong>BTEB results 2025</strong> instantly with our fast and reliable result search system. 
-              Get your <strong>diploma results</strong> and <strong>polytechnic results</strong> for Engineering programs. 
+              Get your <strong>diploma results</strong> for Diploma in Engineering (Civil, Mechanical, Electrical, Computer), 
+              <strong>Diploma in Agriculture</strong>, and <strong>Diploma in Textile</strong> programs. 
               View detailed semester results, GPA scores, and referred subjects information online.
             </p>
           </div>
@@ -350,7 +351,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-2">Instant BTEB Result Search</h3>
               <p className="text-gray-600 text-sm">
-                Search BTEB results 2025 instantly with roll number, regulation, and program selection. Get your diploma results and polytechnic results in seconds.
+                Search BTEB results 2025 instantly with roll number, regulation, and program selection. Get your diploma results for Engineering, Agriculture, and Textile programs in seconds.
               </p>
             </div>
 
@@ -362,7 +363,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-2">Comprehensive BTEB Database</h3>
               <p className="text-gray-600 text-sm">
-                Access BTEB results from multiple databases with API fallback for maximum coverage. Get accurate diploma results and polytechnic results for all programs.
+                Access BTEB results from multiple databases with API fallback for maximum coverage. Get accurate diploma results for Engineering, Agriculture, and Textile programs.
               </p>
             </div>
 
@@ -374,7 +375,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-2">Fast & Reliable BTEB Search</h3>
               <p className="text-gray-600 text-sm">
-                Fast and reliable BTEB result search with comprehensive error handling. Get your diploma results and polytechnic results instantly without any delays.
+                Fast and reliable BTEB result search with comprehensive error handling. Get your diploma results for Engineering, Agriculture, and Textile programs instantly without any delays.
               </p>
             </div>
 
@@ -386,7 +387,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-2">Detailed BTEB Results</h3>
               <p className="text-gray-600 text-sm">
-                View detailed semester results, GPA information, and referred subjects for all BTEB diploma programs and polytechnic programs including Engineering, Technology, and Agriculture.
+                View detailed semester results, GPA information, and referred subjects for Diploma in Engineering (Civil, Mechanical, Electrical, Computer), Diploma in Agriculture, and Diploma in Textile programs.
               </p>
             </div>
           </div>
@@ -395,9 +396,12 @@ export default function HomePage() {
             <h3 className="text-lg font-medium text-gray-900 mb-4">Supported Programs</h3>
             <div className="flex flex-wrap justify-center gap-4">
               <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">Diploma in Engineering</span>
-              <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">Diploma in Technology</span>
               <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">Diploma in Agriculture</span>
-              <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">Polytechnic Programs</span>
+              <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">Diploma in Textile</span>
+              <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">Civil Engineering</span>
+              <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">Mechanical Engineering</span>
+              <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">Electrical Engineering</span>
+              <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">Computer Engineering</span>
             </div>
           </div>
         </div>
@@ -437,20 +441,22 @@ export default function HomePage() {
             
             <p className="mb-6">
               The <strong>Bangladesh Technical Education Board (BTEB)</strong> is responsible for conducting examinations 
-              and publishing results for various diploma programs and polytechnic programs including <strong>Diploma in Engineering</strong>, 
-              <strong>Diploma in Technology</strong>, and <strong>Diploma in Agriculture</strong>. Our platform provides 
-              instant access to <strong>BTEB results 2025</strong>, <strong>diploma results 2025</strong>, <strong>polytechnic results 2025</strong> and previous years&apos; results.
+              and publishing results for various diploma programs including <strong>Diploma in Engineering</strong> (Civil, Mechanical, Electrical, Computer), 
+              <strong>Diploma in Agriculture</strong>, and <strong>Diploma in Textile</strong>. Our platform provides 
+              instant access to <strong>BTEB results 2025</strong>, <strong>diploma results 2025</strong> and previous years&apos; results.
             </p>
             
             <h3 className="text-xl font-medium text-gray-900 mt-8 mb-4">
-              Available BTEB Programs for Result Check - Diploma & Polytechnic Results
+              Available BTEB Programs for Result Check - Diploma Results
             </h3>
             <ul className="list-disc pl-6 mb-6 space-y-2">
               <li><strong>Diploma in Engineering</strong> - Civil, Electrical, Mechanical, Computer, and other engineering disciplines</li>
-              <li><strong>Diploma in Technology</strong> - Various technology-based diploma programs</li>
               <li><strong>Diploma in Agriculture</strong> - Agricultural science and technology programs</li>
-              <li><strong>Polytechnic Institute Results</strong> - All polytechnic institute results under BTEB</li>
-              <li><strong>Technical Education Results</strong> - Complete technical education result database</li>
+              <li><strong>Diploma in Textile</strong> - Textile engineering and technology programs</li>
+              <li><strong>Civil Engineering Diploma</strong> - Civil engineering diploma results</li>
+              <li><strong>Mechanical Engineering Diploma</strong> - Mechanical engineering diploma results</li>
+              <li><strong>Electrical Engineering Diploma</strong> - Electrical engineering diploma results</li>
+              <li><strong>Computer Engineering Diploma</strong> - Computer engineering diploma results</li>
             </ul>
 
             <h3 className="text-xl font-medium text-gray-900 mt-8 mb-4">
@@ -487,11 +493,11 @@ export default function HomePage() {
               </div>
               <div className="flex items-start space-x-2">
                 <span className="font-semibold text-gray-900">3.</span>
-                <span>Choose your diploma program type (Engineering, Technology, or Agriculture)</span>
+                <span>Choose your diploma program type (Engineering, Agriculture, or Textile)</span>
               </div>
               <div className="flex items-start space-x-2">
                 <span className="font-semibold text-gray-900">4.</span>
-                <span>Click "Search BTEB Results 2025" to get your diploma results and polytechnic results</span>
+                <span>Click "Search BTEB Results 2025" to get your diploma results</span>
               </div>
             </div>
 
@@ -501,7 +507,7 @@ export default function HomePage() {
             <div className="space-y-4 mb-6">
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h4 className="font-medium text-gray-900 mb-2">How to check BTEB results 2025?</h4>
-                <p className="text-sm text-gray-600">Enter your BTEB roll number, select regulation year (2010, 2016, or 2022), choose your program type, and click search to get your diploma results or polytechnic results instantly.</p>
+                <p className="text-sm text-gray-600">Enter your BTEB roll number, select regulation year (2010, 2016, or 2022), choose your program type (Engineering, Agriculture, or Textile), and click search to get your diploma results instantly.</p>
               </div>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h4 className="font-medium text-gray-900 mb-2">What is BTEB result check?</h4>
@@ -512,8 +518,8 @@ export default function HomePage() {
                 <p className="text-sm text-gray-600">Use our platform to search diploma results by entering your roll number, selecting regulation, and program type. Get instant access to your diploma in engineering results.</p>
               </div>
               <div className="bg-gray-50 p-4 rounded-lg">
-                <h4 className="font-medium text-gray-900 mb-2">What are polytechnic results?</h4>
-                <p className="text-sm text-gray-600">Polytechnic results are examination results from polytechnic institutes under BTEB, including diploma programs in engineering, technology, and agriculture fields.</p>
+                <h4 className="font-medium text-gray-900 mb-2">What diploma programs are supported?</h4>
+                <p className="text-sm text-gray-600">Our platform supports Diploma in Engineering (Civil, Mechanical, Electrical, Computer), Diploma in Agriculture, and Diploma in Textile programs under BTEB.</p>
               </div>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h4 className="font-medium text-gray-900 mb-2">How to check BTEB results by roll number?</h4>
@@ -521,7 +527,7 @@ export default function HomePage() {
               </div>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h4 className="font-medium text-gray-900 mb-2">What information is shown in BTEB results?</h4>
-                <p className="text-sm text-gray-600">BTEB results show semester-wise GPA, institute information, referred subjects (if any), exam dates, and overall academic performance for diploma and polytechnic programs.</p>
+                <p className="text-sm text-gray-600">BTEB results show semester-wise GPA, institute information, referred subjects (if any), exam dates, and overall academic performance for Diploma in Engineering, Agriculture, and Textile programs.</p>
               </div>
             </div>
 
@@ -574,8 +580,12 @@ export default function HomePage() {
         
         <h2>BTEB Programs Available</h2>
         <h3>Diploma in Engineering Results</h3>
-        <h3>Diploma in Technology Results</h3>
         <h3>Diploma in Agriculture Results</h3>
+        <h3>Diploma in Textile Results</h3>
+        <h3>Civil Engineering Diploma Results</h3>
+        <h3>Mechanical Engineering Diploma Results</h3>
+        <h3>Electrical Engineering Diploma Results</h3>
+        <h3>Computer Engineering Diploma Results</h3>
         <h3>BTEB Polytechnic Institute Results</h3>
         
         <h2>BTEB Regulations Supported</h2>
@@ -605,8 +615,12 @@ export default function HomePage() {
         <h3>BTEB Diploma Result</h3>
         <h3>BTEB Polytechnic Result</h3>
         <h3>BTEB Engineering Result</h3>
-        <h3>BTEB Technology Result</h3>
         <h3>BTEB Agriculture Result</h3>
+        <h3>BTEB Textile Result</h3>
+        <h3>BTEB Civil Engineering Result</h3>
+        <h3>BTEB Mechanical Engineering Result</h3>
+        <h3>BTEB Electrical Engineering Result</h3>
+        <h3>BTEB Computer Engineering Result</h3>
         
         <h2>BTEB Result Services</h2>
         <h3>BTEB Result Hub</h3>
@@ -696,7 +710,23 @@ export default function HomePage() {
         <h3>diploma in agriculture result</h3>
         <h3>diploma in agriculture result 2025</h3>
         <h3>diploma agriculture result 2025</h3>
-        <h3>diploma result diploma 2025</h3>
+        <h3>diploma in textile result</h3>
+        <h3>diploma in textile result 2025</h3>
+        <h3>diploma textile result 2025</h3>
+        <h3>diploma in civil engineering result</h3>
+        <h3>diploma in civil engineering result 2025</h3>
+        <h3>diploma in mechanical engineering result</h3>
+        <h3>diploma in mechanical engineering result 2025</h3>
+        <h3>diploma in electrical engineering result</h3>
+        <h3>diploma in electrical engineering result 2025</h3>
+        <h3>diploma in computer engineering result</h3>
+        <h3>diploma in computer engineering result 2025</h3>
+        <h3>civil engineering diploma result</h3>
+        <h3>mechanical engineering diploma result</h3>
+        <h3>electrical engineering diploma result</h3>
+        <h3>computer engineering diploma result</h3>
+        <h3>textile engineering diploma result</h3>
+        <h3>agriculture diploma result</h3>
         <h3>polytechnic result</h3>
         <h3>polytechnic results</h3>
         <h3>polytechnic result check</h3>
@@ -752,7 +782,23 @@ export default function HomePage() {
         <h3>ডিপ্লোমা ইন এগ্রিকালচার রেজাল্ট</h3>
         <h3>ডিপ্লোমা ইন এগ্রিকালচার রেজাল্ট ২০২৫</h3>
         <h3>ডিপ্লোমা এগ্রিকালচার রেজাল্ট ২০২৫</h3>
-        <h3>ডিপ্লোমা রেজাল্ট ডিপ্লোমা ২০২৫</h3>
+        <h3>ডিপ্লোমা ইন টেক্সটাইল রেজাল্ট</h3>
+        <h3>ডিপ্লোমা ইন টেক্সটাইল রেজাল্ট ২০২৫</h3>
+        <h3>ডিপ্লোমা টেক্সটাইল রেজাল্ট ২০২৫</h3>
+        <h3>ডিপ্লোমা ইন সিভিল ইঞ্জিনিয়ারিং রেজাল্ট</h3>
+        <h3>ডিপ্লোমা ইন সিভিল ইঞ্জিনিয়ারিং রেজাল্ট ২০২৫</h3>
+        <h3>ডিপ্লোমা ইন মেকানিক্যাল ইঞ্জিনিয়ারিং রেজাল্ট</h3>
+        <h3>ডিপ্লোমা ইন মেকানিক্যাল ইঞ্জিনিয়ারিং রেজাল্ট ২০২৫</h3>
+        <h3>ডিপ্লোমা ইন ইলেকট্রিক্যাল ইঞ্জিনিয়ারিং রেজাল্ট</h3>
+        <h3>ডিপ্লোমা ইন ইলেকট্রিক্যাল ইঞ্জিনিয়ারিং রেজাল্ট ২০২৫</h3>
+        <h3>ডিপ্লোমা ইন কম্পিউটার ইঞ্জিনিয়ারিং রেজাল্ট</h3>
+        <h3>ডিপ্লোমা ইন কম্পিউটার ইঞ্জিনিয়ারিং রেজাল্ট ২০২৫</h3>
+        <h3>সিভিল ইঞ্জিনিয়ারিং ডিপ্লোমা রেজাল্ট</h3>
+        <h3>মেকানিক্যাল ইঞ্জিনিয়ারিং ডিপ্লোমা রেজাল্ট</h3>
+        <h3>ইলেকট্রিক্যাল ইঞ্জিনিয়ারিং ডিপ্লোমা রেজাল্ট</h3>
+        <h3>কম্পিউটার ইঞ্জিনিয়ারিং ডিপ্লোমা রেজাল্ট</h3>
+        <h3>টেক্সটাইল ইঞ্জিনিয়ারিং ডিপ্লোমা রেজাল্ট</h3>
+        <h3>এগ্রিকালচার ডিপ্লোমা রেজাল্ট</h3>
         <h3>পলিটেকনিক রেজাল্ট</h3>
         <h3>পলিটেকনিক রেজাল্টস</h3>
         <h3>পলিটেকনিক রেজাল্ট চেক</h3>
@@ -955,6 +1001,222 @@ export default function HomePage() {
         <h3>diploma result by roll number</h3>
         <h3>polytechnic result by roll number</h3>
         
+        <h2>Additional BTEB Keywords & Related Terms</h2>
+        <h3>bteb</h3>
+        <h3>web based result</h3>
+        <h3>bteb result</h3>
+        <h3>www.educationboard.gov.bd hsc result 2022</h3>
+        <h3>breb</h3>
+        <h3>bteb admission</h3>
+        <h3>btebadmissionresult</h3>
+        <h3>cgpa calculator</h3>
+        <h3>diploma result</h3>
+        <h3>www.educationboard.gov.bd ssc result 2022</h3>
+        <h3>bangladesh technical education board</h3>
+        <h3>bangladesh technical education board dhaka</h3>
+        <h3>bteb gov bd</h3>
+        <h3>education board result marksheet</h3>
+        <h3>web based result with marksheet</h3>
+        <h3>www bteb gov bd</h3>
+        <h3>bteb notice</h3>
+        <h3>dhaka polytechnic</h3>
+        <h3>dhaka polytechnic institute</h3>
+        <h3>ssc gpa calculator</h3>
+        <h3>hsc gpa calculator</h3>
+        <h3>bteb admission result</h3>
+        <h3>www bteb gov bd result</h3>
+        <h3>hsc result 2023 published date</h3>
+        <h3>all result bd</h3>
+        <h3>bteb admission 2023</h3>
+        <h3>gpa calculator hsc</h3>
+        <h3>www.educationboard.gov.bd ssc result 2021</h3>
+        <h3>eboard result</h3>
+        <h3>web based result publication system for education boards</h3>
+        <h3>www fisheries gov bd</h3>
+        <h3>www.educationboard.gov.bd hsc result 2023</h3>
+        <h3>www.educationboard.gov.bd ssc result 2020</h3>
+        <h3>bteb result 2023</h3>
+        <h3>gpa calculator bd</h3>
+        <h3>www.educationboard.gov.bd hsc result 2021</h3>
+        <h3>bteb gov bd result</h3>
+        <h3>bteb result marksheet</h3>
+        <h3>cgpa</h3>
+        <h3>hsc result 2022 published date</h3>
+        <h3>karigori shikkha board</h3>
+        <h3>polytechnic result</h3>
+        <h3>rajshahi polytechnic institute</h3>
+        <h3>rangpur polytechnic institute</h3>
+        <h3>ssc board challenge result 2022</h3>
+        <h3>web based result publication</h3>
+        <h3>www.agriculture.ac.bd admission 2020-21</h3>
+        <h3>bangladesh karigori shikkha board</h3>
+        <h3>bangladesh technical education board result</h3>
+        <h3>bord challenge</h3>
+        <h3>bteb diploma result</h3>
+        <h3>diploma engineering result</h3>
+        <h3>khulna polytechnic institute</h3>
+        <h3>mymensingh polytechnic institute</h3>
+        <h3>www bteb gov bd new notice</h3>
+        <h3>www.bteb.gov.bd result 2023</h3>
+        <h3>www.btebadmission.gov.bd 2022</h3>
+        <h3>board chalange</h3>
+        <h3>board challenge</h3>
+        <h3>breb online application</h3>
+        <h3>dinajpur polytechnic institute</h3>
+        <h3>dte bd</h3>
+        <h3>eboard result com</h3>
+        <h3>iub cgpa calculator</h3>
+        <h3>nursing admission 2021-22 in bangladesh</h3>
+        <h3>polytechnic admission result 2022</h3>
+        <h3>www.bteb.gov.bd result 2022</h3>
+        <h3>brtc gov bd</h3>
+        <h3>bteb notice 2021</h3>
+        <h3>diploma result marksheet</h3>
+        <h3>munshiganj polytechnic institute</h3>
+        <h3>polytechnic admission result</h3>
+        <h3>resultbd</h3>
+        <h3>sylhet polytechnic institute</h3>
+        <h3>www.educationboard.gov.bd hsc result 2020</h3>
+        <h3>barisal polytechnic institute</h3>
+        <h3>betb</h3>
+        <h3>bteb admission 2022</h3>
+        <h3>bteb gov bd notice</h3>
+        <h3>bteb result marksheet 2022</h3>
+        <h3>diploma in engineering result</h3>
+        <h3>diploma result checking link</h3>
+        <h3>diploma results 2018</h3>
+        <h3>dte gov bd</h3>
+        <h3>hsc result 2022 with marksheet</h3>
+        <h3>individual result</h3>
+        <h3>institute of diploma engineers bangladesh</h3>
+        <h3>newresult bd com</h3>
+        <h3>ssc board challange result</h3>
+        <h3>ssc board challenge result</h3>
+        <h3>ssc vocational result 2022</h3>
+        <h3>www dte gov bd</h3>
+        <h3>bangladesh institute of glass and ceramics</h3>
+        <h3>breb result 2021</h3>
+        <h3>btb</h3>
+        <h3>bteb exam routine 2023</h3>
+        <h3>bteb result hub</h3>
+        <h3>cgpa result</h3>
+        <h3>cgpa system in bangladesh</h3>
+        <h3>diploma admission result 2018</h3>
+        <h3>faridpur polytechnic institute</h3>
+        <h3>hsc bm result 2023</h3>
+        <h3>magura polytechnic institute</h3>
+        <h3>ssc board challenge 2022</h3>
+        <h3>tangail polytechnic</h3>
+        <h3>tangail polytechnic institute</h3>
+        <h3>www result bd com</h3>
+        <h3>bangladesh technical education board result 2023</h3>
+        <h3>bteb admission system</h3>
+        <h3>bteb result check</h3>
+        <h3>cgpa calculator for diploma</h3>
+        <h3>chittagong polytechnic</h3>
+        <h3>chittagong polytechnic institute</h3>
+        <h3>ctg polytechnic institute</h3>
+        <h3>diploma result bd</h3>
+        <h3>eboardresult marksheet 2021</h3>
+        <h3>feni polytechnic institute</h3>
+        <h3>how to calculate cgpa</h3>
+        <h3>how to count cgpa</h3>
+        <h3>how to find cgpa</h3>
+        <h3>hsc board challenge 2024</h3>
+        <h3>hsc board challenge result 2023</h3>
+        <h3>kurigram polytechnic institute</h3>
+        <h3>kushtia govt college</h3>
+        <h3>pabna textile</h3>
+        <h3>ssc vocational result 2023</h3>
+        <h3>technical education board result</h3>
+        <h3>www brtc gov bd</h3>
+        <h3>www bteb gov bd com</h3>
+        <h3>www.brtc.gov.bd result 2021</h3>
+        <h3>www.bteb.gov.bd admission 2023</h3>
+        <h3>based result</h3>
+        <h3>brahmanbaria polytechnic institute</h3>
+        <h3>btb bd</h3>
+        <h3>bte</h3>
+        <h3>bteb admission gov bd</h3>
+        <h3>bteb admission notice</h3>
+        <h3>bteb result app</h3>
+        <h3>bteb routine 2021</h3>
+        <h3>btebadmission.gov.bd 2020-21</h3>
+        <h3>btebadmission.gov.bd 2022</h3>
+        <h3>bted</h3>
+        <h3>cox's bazar polytechnic institute</h3>
+        <h3>diploma result 2020</h3>
+        <h3>hsc bm result 2022</h3>
+        <h3>hsc bmt result 2023</h3>
+        <h3>lakshmipur polytechnic institute</h3>
+        <h3>laxmipur polytechnic institute</h3>
+        <h3>naogaon polytechnic institute</h3>
+        <h3>polytechnic result 2022</h3>
+        <h3>ssc result calculator</h3>
+        <h3>technical board result</h3>
+        <h3>web based result publication system</h3>
+        <h3>www web based result</h3>
+        <h3>all result</h3>
+        <h3>bangladesh institute of marine technology</h3>
+        <h3>bangladesh polytechnic institute</h3>
+        <h3>bhola polytechnic institute</h3>
+        <h3>board challenge hsc 2024</h3>
+        <h3>bteb bd</h3>
+        <h3>cgpa calculator bd</h3>
+        <h3>cgpa calculator brac</h3>
+        <h3>cgpa result 2022</h3>
+        <h3>diploma admission result</h3>
+        <h3>diploma in engineering result 2022</h3>
+        <h3>hope polytechnic institute</h3>
+        <h3>how to calculate cgpa out of 4</h3>
+        <h3>hsc board challenge result 2022</h3>
+        <h3>hsc result published date 2023</h3>
+        <h3>hsc vocational routine 2023 pdf download</h3>
+        <h3>karigori board</h3>
+        <h3>mangrove institute of science and technology</h3>
+        <h3>moulvibazar polytechnic institute</h3>
+        <h3>polytechnic notice</h3>
+        <h3>shariatpur polytechnic institute</h3>
+        <h3>shariyatpur polytechnic institute</h3>
+        <h3>sirajganj polytechnic institute</h3>
+        <h3>ssc rajal</h3>
+        <h3>ssc vocational routine 2021</h3>
+        <h3>www educationboard gov bd hsc result 2022</h3>
+        <h3>www.bteb.gov.bd result 2021</h3>
+        <h3>barguna polytechnic institute</h3>
+        <h3>bd result app</h3>
+        <h3>brtc admit card</h3>
+        <h3>bteb exam routine 2021</h3>
+        <h3>bteb notice ssc 2022</h3>
+        <h3>bteb result 2022 pdf download</h3>
+        <h3>bteb result bd</h3>
+        <h3>bteb result com</h3>
+        <h3>bteb result marksheet 2023</h3>
+        <h3>cgpa point</h3>
+        <h3>computer office application</h3>
+        <h3>dhaka political institute</h3>
+        <h3>dip gov bd</h3>
+        <h3>diploma engineering result 2023</h3>
+        <h3>eboardresult.com 2021</h3>
+        <h3>gpa calculator for ssc</h3>
+        <h3>grading system bangladesh</h3>
+        <h3>graphic arts institute</h3>
+        <h3>hsc bm 1st year result 2023</h3>
+        <h3>hsc result 2021 published date</h3>
+        <h3>jashore polytechnic institute</h3>
+        <h3>national institute of engineering & technology niet dhaka</h3>
+        <h3>satkhira polytechnic institute</h3>
+        <h3>ssc 2022 board challenge result</h3>
+        <h3>ssc vocational result</h3>
+        <h3>web based result hsc</h3>
+        <h3>www btv gov bd</h3>
+        <h3>www eboardresult com</h3>
+        <h3>www educationboard gov bd hsc result 2023</h3>
+        <h3>www.eboardresult.gov.bd ssc</h3>
+        <h3>ayub hena polytechnic institute</h3>
+        <h3>satisfyhost</h3>
+        <h3>www educationboard gov bd hsc result 2021</h3>
+        
         <h2>BTEB Result Bangla Extended</h2>
         <h3>বিটিইবি রেজাল্ট ডেটাবেস</h3>
         <h3>বিটিইবি রেজাল্ট আর্কাইভ</h3>
@@ -1027,17 +1289,17 @@ export default function HomePage() {
         <h3>বিটিইবি রেজাল্ট অবলিগেটরি রেকর্ড</h3>
         <h3>বিটিইবি রেজাল্ট বাইন্ডিং রেকর্ড</h3>
         
-        <p>BTEB Results Hub provides instant access to Bangladesh Technical Education Board results for diploma programs including Diploma in Engineering, Diploma in Technology, and Diploma in Agriculture. Check your BTEB results 2025, diploma results 2025, and polytechnic results 2025 instantly with our comprehensive result search system. Our platform supports BTEB regulations 2010, 2016, and 2022, allowing students to search results by roll number, regulation year, and program type. Get detailed semester results, GPA information, referred subjects, and institute details for all BTEB diploma and polytechnic programs. BTEB result check online has never been easier with our fast and reliable search system that covers all technical education board results in Bangladesh.</p>
+        <p>BTEB Results Hub provides instant access to Bangladesh Technical Education Board results for diploma programs including Diploma in Engineering (Civil, Mechanical, Electrical, Computer), Diploma in Agriculture, and Diploma in Textile. Check your BTEB results 2025, diploma results 2025 instantly with our comprehensive result search system. Our platform supports BTEB regulations 2010, 2016, and 2022, allowing students to search results by roll number, regulation year, and program type. Get detailed semester results, GPA information, referred subjects, and institute details for all BTEB diploma programs. BTEB result check online has never been easier with our fast and reliable search system that covers all technical education board results in Bangladesh.</p>
         
-        <p>Search BTEB results instantly using your roll number and get comprehensive information about your academic performance. Our BTEB results database includes all diploma results, polytechnic results, engineering results, technology results, and agriculture results from Bangladesh Technical Education Board. Whether you're looking for BTEB results 2025, BTEB results 2024, or previous years' results, our platform provides accurate and up-to-date information. Check your BTEB diploma result, BTEB polytechnic result, or BTEB engineering result with detailed semester-wise breakdown and GPA calculations.</p>
+        <p>Search BTEB results instantly using your roll number and get comprehensive information about your academic performance. Our BTEB results database includes all diploma results, engineering results, agriculture results, and textile results from Bangladesh Technical Education Board. Whether you're looking for BTEB results 2025, BTEB results 2024, or previous years' results, our platform provides accurate and up-to-date information. Check your BTEB diploma result, civil engineering diploma result, mechanical engineering diploma result, electrical engineering diploma result, computer engineering diploma result, agriculture diploma result, or textile engineering diploma result with detailed semester-wise breakdown and GPA calculations.</p>
         
-        <p>BTEB result search is now faster and more reliable than ever. Our platform serves as the ultimate BTEB result hub for students across Bangladesh, providing instant access to diploma results, polytechnic results, and all technical education board results. With support for multiple BTEB regulations and comprehensive result information, students can easily check their BTEB results online, download result marksheets, and get detailed academic performance reports. Our BTEB result portal ensures that every student can access their results quickly and efficiently, making it the preferred choice for BTEB result checking in Bangladesh.</p>
+        <p>BTEB result search is now faster and more reliable than ever. Our platform serves as the ultimate BTEB result hub for students across Bangladesh, providing instant access to diploma results for Engineering, Agriculture, and Textile programs. With support for multiple BTEB regulations and comprehensive result information, students can easily check their BTEB results online, download result marksheets, and get detailed academic performance reports. Our BTEB result portal ensures that every student can access their results quickly and efficiently, making it the preferred choice for BTEB result checking in Bangladesh.</p>
         
         <p>Our BTEB result database contains comprehensive records of all Bangladesh Technical Education Board examinations, including detailed academic performance metrics, semester-wise GPA calculations, referred subjects tracking, and institutional information. The BTEB result verification system ensures that all results are authenticated, validated, and confirmed through official channels. Students can access their BTEB result transcripts, mark sheets, grade sheets, score cards, and report cards through our secure platform. The BTEB result archive maintains historical data from previous years, allowing students to track their academic progress and performance over time.</p>
         
         <p>BTEB result checking has been revolutionized with our advanced search technology that provides instant access to official records, certified documents, and verified academic information. Our platform supports all BTEB regulations including 2010, 2016, and 2022 curriculum standards, ensuring compatibility with different academic years and program requirements. The BTEB result system processes queries rapidly using high-speed internet connections, mobile data, 4G, and 5G networks, delivering results in real-time with maximum efficiency. Students can access their BTEB results through smartphones, tablets, computers, laptops, and desktop systems using any modern web browser.</p>
         
-        <p>The BTEB result platform continuously updates its database with the latest examination results, notifications, and academic information. Our service provides comprehensive coverage of all technical education programs including Diploma in Engineering, Diploma in Technology, Diploma in Agriculture, and various polytechnic institute programs. The BTEB result hub serves as the primary source for official academic records, educational credentials, and certification documents for students across Bangladesh. With our advanced result analysis, statistics, and performance metrics, students can gain detailed insights into their academic achievements and progress throughout their technical education journey.</p>
+        <p>The BTEB result platform continuously updates its database with the latest examination results, notifications, and academic information. Our service provides comprehensive coverage of Diploma in Engineering (Civil, Mechanical, Electrical, Computer), Diploma in Agriculture, and Diploma in Textile programs. The BTEB result hub serves as the primary source for official academic records, educational credentials, and certification documents for students across Bangladesh. With our advanced result analysis, statistics, and performance metrics, students can gain detailed insights into their academic achievements and progress throughout their technical education journey.</p>
       </div>
     </div>
   );

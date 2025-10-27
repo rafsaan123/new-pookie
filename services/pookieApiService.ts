@@ -173,14 +173,37 @@ export class PookieApiService {
       // Handle referred subjects
       if (result.result && typeof result.result === 'object' && result.result.ref_subjects) {
         examResult.reffereds = result.result.ref_subjects.map((subject: any) => {
-          // Ensure subject is a string before calling split
-          const subjectStr = typeof subject === 'string' ? subject : String(subject);
-          const subjectCode = parseInt(subjectStr.split('(')[0]);
+          // Handle two API response formats:
+          // 1. String format: "25931" or "25931(type)"
+          // 2. Object format: {code: "80230", type: "T"}
+          let subjectCode: number;
+          let subjectName: string;
+          let refType: string;
+
+          if (typeof subject === 'string') {
+            // String format: "25931" or "25931(type)"
+            const subjectStr = subject;
+            subjectCode = parseInt(subjectStr.split('(')[0]);
+            subjectName = subjectStr;
+            refType = 'T';
+          } else if (typeof subject === 'object' && subject !== null) {
+            // Object format: {code: "80230", type: "T"}
+            subjectCode = parseInt(subject.code);
+            subjectName = `Subject ${subject.code}`;
+            refType = subject.type || 'T';
+          } else {
+            // Fallback for unexpected format
+            const subjectStr = String(subject);
+            subjectCode = parseInt(subjectStr);
+            subjectName = subjectStr;
+            refType = 'T';
+          }
+
           const referredSubject = {
             subject_semester: semester,
             subject_code: subjectCode,
-            subject_name: subjectStr,
-            reffered_type: 'T',
+            subject_name: subjectName,
+            reffered_type: refType,
             passed: false
           };
 

@@ -334,7 +334,7 @@ export default function HomePage() {
             <p className="text-sm text-amber-800 leading-relaxed">
               <strong>Disclaimer:</strong> This website is NOT affiliated with or endorsed by the Bangladesh Technical Education Board (BTEB) or any government entity. This is an independent third-party application that provides access to publicly available academic result information. Official source: <a href="https://bteb.gov.bd/site/page/46ea7fc6-2f18-48d8-a313-a377046a1323/%E0%A6%A1%E0%A6%BF%E0%A6%AA%E0%A7%8D%E0%A6%B2%E0%A7%8B%E0%A6%AE%E0%A6%BE-%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A7%9F" target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-900">https://bteb.gov.bd</a>
             </p>
-          </div>
+              </div>
         </div>
       </section>
 
@@ -442,7 +442,7 @@ export default function HomePage() {
             </div>
       </section>
 
-      {/* SEO Content Section */}
+        {/* SEO Content Section */}
       <section className="bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-16">
           <div className="prose max-w-none text-gray-600">
